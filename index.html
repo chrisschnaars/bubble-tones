@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+	      <!-- Force latest available IE rendering engine and Chrome Frame (if installed) -->
+	      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>Bubble Tones</title>
+        <meta name="description" content="">
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="css/main-styles.css">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500" rel="stylesheet">
+
+        <!-- Libraries -->
+        <script language="javascript" type="text/javascript" src="js/libraries/p5.js"></script>
+        <script language="javascript" type="text/javascript" src="js/libraries/p5.dom.js"></script>
+        <script language="javascript" type="text/javascript" src="js/libraries/p5.sound.js"></script>
+
+        <!-- Javascript -->
+        <script language="javascript" type="text/javascript" src="js/app.js"></script>
+        <script language="javascript" type="text/javascript" src="js/circleShape.js"></script>
+        <script language="javascript" type="text/javascript" src="js/bubble.js"></script>
+        <script language="javascript" type="text/javascript" src="js/sketch.js"></script>
+
+    </head>
+
+    <body onload="main()">
+
+      <div id="ui-container">
+
+        <!-- Control Elements -->
+        <div id="control-panel">
+
+          <!-- Play and Pause Buttons -->
+          <div class="ui-group" id="play-pause">
+            <div id="play-button" class="button  btn-inactive" onClick="togglePlaying()"></div>
+            <div id="pause-button" class="button" onClick="togglePlaying()"></div>
+          </div>
+
+          <!--Key Selection -->
+          <div id="key-control" class="ui-group">
+            <nav  class="segmented-control">
+              <input type="radio" name="musicalKey" id="key-A" value="220" onclick="updateKey(this.value)" checked/>
+              <label for="key-A">A</label>
+              <input type="radio" name="musicalKey" id="key-D" value="293.66" onclick="updateKey(this.value)" />
+              <label for="key-D">D</label>
+              <input type="radio" name="musicalKey" id="key-E" value="329.628" onclick="updateKey(this.value)" />
+              <label for="key-E">E</label>
+            </nav>
+          </div>
+
+          <!-- Scale Selection -->
+          <div id="scale-control" class="ui-group">
+            <nav class="segmented-control">
+              <input type="radio" name="musicalScale" id="major" value="0" onclick="updateScale(this.value)" checked />
+              <label for="major">Major</label>
+              <input type="radio" name="musicalScale" id="minor" value="1" onclick="updateScale(this.value)" />
+              <label for="minor">Minor</label>
+            </nav>
+          </div>
+
+          <!-- Tempo  -->
+          <div id="tempo-control" class="ui-group">
+            <div class="label-box">
+              <p class="slider-label right">Slow</p>
+            </div>
+
+            <div class="slider-box">
+              <input type="range" id="tempo" min="1" max="5" step="0.1" value="2.0" onchange="updateTempo(this.value)" />
+            </div>
+
+            <div class="label-box">
+              <p class="slider-label">Fast</p>
+            </div>
+          </div>
+
+        <!-- End Controls Area  -->
+        </div>
+
+
+        <!-- Logo Area -->
+        <div id="logo-container" onclick="toggleInfoPanel()">
+          <h1 id="logotext">Bubble Tones</h1>
+          <div id="menu-button" class="button" onClick="togglePlaying()"></div>
+        </div>
+
+      <!-- End UI Container -->
+      </div>
+
+
+
+      <div id="info-panel">
+
+        <!-- Close Button -->
+        <div id="close-button" onClick="toggleInfoPanel()">
+          <!-- <img src="assets/images/close-btn.svg"> -->
+        </div>
+
+        <div class="info-content">
+          <p class="info-panel header">Tips</p>
+          <p class="info-panel">
+            Click inside the main area to create a new bubble.<br>
+            Use the controls to change the key, scale, and tempo.
+          </p>
+
+          <p class="info-panel header">About Bubble Tones</p>
+          <p class="info-panel">
+            Bubble tones is a cutomizable generative music program that aims to produce pleasing, unpredictable, elevator-quality tones.
+          </p>
+
+
+          <p class="info-panel">
+            When two bubbles collide, the sum of their tone frequencies plays. When a bubble collides with a larger circle, the difference of their tone frequencies play.
+          </p>
+
+          <p class="info-panel">
+            This is an experiment by Chris Schnaars. Find the code here. Please reach out if you notice something not working or to say hello.
+          </p>
+
+        </div>
+
+      <!-- End Info Panel -->
+      </div>
+
+
+
+    </body>
+</html>

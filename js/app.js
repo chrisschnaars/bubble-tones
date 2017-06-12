@@ -1,0 +1,139 @@
+// Chris Schnaars
+// BUBBLE TONES
+
+// broswer width Variable
+var browserWidth;
+
+// Determine the height of the header
+var uiContainerHeight;
+
+// Musical Key Settings
+var musicKey; // key variable
+var scaleId; // scale identification
+var notes = []; // notes array
+
+// Tempo Setting
+var bubbleTempo = 2;
+
+// Info Panel Visibility
+var infoPanelHidden = true;
+
+// Play/Pause Boolean
+var looping = true; // starts playing
+var wasLooping;
+
+// browser width breakpoints
+var midBreakpoint = 1200;
+var smallBreakpoint = 1000;
+
+// main function
+function main() {
+  // set browser width
+  browserWidth = window.innerWidth || document.body.clientWidth;
+  if (browserWidth < smallBreakpoint) {
+    uiContainerHeight = 0;
+  } else if (browserWidth >= smallBreakpoint && browserWidth <= midBreakpoint){
+    uiContainerHeight = 80;
+  } else {
+    uiContainerHeight = 90;
+  }
+
+  // set CSS variable
+  document.documentElement.style.setProperty("--(container-height)", uiContainerHeight + "px");
+
+  // Get the default key selection
+  var keys = document.getElementsByName("musicalKey");
+  for (var i = 0; i < keys.length; i++) {
+    if (keys[i].checked) {
+      musicKey = keys[i].value;
+    }
+    break;
+  }
+
+  // Get the initial scale selection
+  var scales = document.getElementsByName("musicalScale");
+  for (var i = 0; i < scales.length; i++) {
+    if (scales[i].checked) {
+      scaleId = scales[i].value;
+    }
+    break;
+  }
+
+  // Get the initial tempo selection
+  // Disabled for now. Causing some strange behavior on mouse press.
+  // var tttt = document.getElementById("tempo");
+  // bubbleTempo = tttt.value;
+
+  // set initial tone vlaues
+  updateTones(musicKey, scaleId);
+}
+
+// method to set key and scale
+function updateTones(key, scale) {
+  // update key value
+  musicKey = key;
+
+  // calculate note frequencies based on key
+  var rootNote = 1 * musicKey;
+  var minorThird = (6 / 5) * musicKey;
+  var majorThird = (5 / 4) * musicKey;
+  var fourth = (4 / 3) * musicKey;
+  var fifth = (3 / 2) * musicKey;
+  var minorSeventh = (9 / 5) * musicKey;
+  var octave = 2 * musicKey;
+
+  // determine which scale should be used
+  if (scaleId == 1) {
+    notes = [rootNote, minorThird, minorSeventh, octave]; // minor scale
+  } else {
+    notes = [rootNote, majorThird, fifth, octave]; // major scale
+  }
+}
+
+// update the key value when raido button is clicked
+function updateKey(val) {
+  musicKey = val;
+  updateTones(musicKey, scaleId);
+}
+
+// update the scale value when radio button is clicked
+function updateScale(val) {
+  scaleId = val;
+  updateTones(musicKey, scaleId);
+}
+
+// method to show and hide the info panel
+function toggleInfoPanel() {
+  var a = document.getElementById("info-panel");  // info panel ID
+  var b = document.getElementById("main-canvas"); // canvas ID
+
+  if (infoPanelHidden) {
+    // show the info panel
+    a.style.display = "block";
+
+    // pause the sketch if it is playing
+    if (looping) {
+      wasLooping = true;
+      togglePlaying();
+    } else {
+      wasLooping = false;
+    }
+
+    // set info panel to not hidden
+    infoPanelHidden = false;
+
+    console.log(looping, wasLooping);
+
+  } else {
+    // close the info panel
+    a.style.display = "none";
+
+    // play the sketch if it was playing
+    if (!looping && wasLooping) {
+      togglePlaying();
+    }
+
+    // reset info panel visibility variable
+    infoPanelHidden = true;
+  }
+}

@@ -1,0 +1,19 @@
+Issues:
+- weird velocity shift thing when a bubble hits off circle
+  - limit velocity????
+- some way of randomizing the direction of initial bubbles. maybe when you create one, it starts out slow and increases velocity.
+- UI float not really working in safari
+- resizing window bug....should it just reset?
+- not unpausing when close out of smaller screen things
+
+to do:
+- finalize info panel content
+- info panel link color
+- check browser compatibility
+- question mark icon instead of hamburger one?
+
+think about:
+- adding a reset button
+- bubbles taking on color of the circle that it hits
+- decrease collider circle sizes on smallest screens?
+- putting controls on smaller screen version?

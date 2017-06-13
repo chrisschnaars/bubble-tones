@@ -339,7 +339,7 @@ INFO PANEL
 p.info-panel {
   padding: 0;
   line-height: 170%;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   display: block;
   float: none;
   font-size: 1.5rem;
@@ -353,6 +353,17 @@ p.header {
   letter-spacing: 0.05rem;
 }
 
+a.main-link {
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  color: #FFFC31;
+}
+
+a.main-link:hover {
+  color: white;
+}
+
 /******************************************
 RESPONSIVENESS -- SMALLER SCREENS
 *******************************************/
@@ -361,11 +372,6 @@ RESPONSIVENESS -- SMALLER SCREENS
   /* Descrease height of buttons */
   :root {
     /*--btn-height: 50px;*/
-  }
-
-  /* Decrease font size */
-  header, div, h1, h2, h3, p, a {
-    /*font-size: 1rem;*/
   }
 
   /* Decrease padding between control areas */

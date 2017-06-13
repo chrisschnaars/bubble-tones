@@ -194,10 +194,6 @@ SEGMENTED CONTROLS
 SLIDER
 **********************/
 
-#tempo-control {
-  /*height: 100%;*/
-}
-
 /* Container for slider labels */
 .label-box {
   height: 100%;

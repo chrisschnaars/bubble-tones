@@ -240,6 +240,9 @@ function draw() {
 
 // Method to resize canvas
 function windowResized() {
+
+  location.reload();
+  
   // get the new broswer width & set container height
   setContainerHeight();
 

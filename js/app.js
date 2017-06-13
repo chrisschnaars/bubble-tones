@@ -28,15 +28,8 @@ var smallBreakpoint = 1000;
 
 // main function
 function main() {
-  // set browser width
-  browserWidth = window.innerWidth || document.body.clientWidth;
-  if (browserWidth < smallBreakpoint) {
-    uiContainerHeight = 0;
-  } else if (browserWidth >= smallBreakpoint && browserWidth <= midBreakpoint){
-    uiContainerHeight = 80;
-  } else {
-    uiContainerHeight = 90;
-  }
+  // set container height
+  setContainerHeight()
 
   // set CSS variable
   document.documentElement.style.setProperty("--(container-height)", uiContainerHeight + "px");
@@ -66,6 +59,26 @@ function main() {
 
   // set initial tone vlaues
   updateTones(musicKey, scaleId);
+}
+
+// method to set container height based on browser width
+// container height affects the height of the canvas
+function setContainerHeight() {
+  // find browser width
+  browserWidth = window.innerWidth || document.body.clientWidth;
+
+  // calculate container height
+  if (browserWidth < smallBreakpoint) {
+    uiContainerHeight = 0;
+  } else if (browserWidth >= smallBreakpoint && browserWidth <= midBreakpoint){
+    uiContainerHeight = 80;
+  } else {
+    uiContainerHeight = 80;
+  }
+
+  // set CSS variable
+  var h = document.getElementById("ui-container");
+  h.style.setProperty("--container-height", uiContainerHeight + "px");
 }
 
 // method to set key and scale

@@ -6,9 +6,9 @@
   --blue3: #192A33;
   --blue4: #040E10;
   --btn-width: 20%; /* Width of buttons & button content */
-  --btn-height: 52px;
+  --btn-height: 50px;
   --body-font-size: 1.25rem;
-  --container-height: 90px; /* To be overridden */
+  --container-height: 80px; /* This will be overridden by javascript */
 }
 
 /* Global Resets */
@@ -77,7 +77,6 @@ canvas {
   background-color: var(--blue3);
 }
 
-
 /* Container For Entire UI Area */
 #control-panel {
   float: left;
@@ -93,7 +92,7 @@ canvas {
 
 /* Text Logo/Link */
 #logotext {
-  padding: 28px 25px 0 25px;
+  padding: 25px 25px 0 25px;
   height: 100%;
 }
 
@@ -112,7 +111,7 @@ canvas {
 .ui-group {
   float: left;
   display: inline-block;
-  padding: 18px 25px;
+  padding: 15px 25px;
   margin: 0;
   height: 100%;
   min-height: 100%;
@@ -124,7 +123,7 @@ PLAY BUTTON
 
 /* General Button Styling */
 .button {
-    border: 1px solid var(--blue2);
+    /*border: 1px solid var(--blue2);*/
     font-size: 60px;
     color: #fff;
     background-color: var(--blue2);
@@ -135,10 +134,6 @@ PLAY BUTTON
     text-align: center;
     border-radius: 50%;
     cursor: pointer;
-    /*-webkit-transition: -webkit-transform .05s;
-    transition: -webkit-transform .05s;
-    transition: transform .05s;
-    transition: transform .05s,-webkit-transform .05s;*/
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -172,6 +167,7 @@ SEGMENTED CONTROLS
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  height: var(--btn-height);
 }
 
 .segmented-control input[type=radio] {
@@ -364,17 +360,17 @@ RESPONSIVENESS -- SMALLER SCREENS
 @media only screen and (max-width: 1200px) {
   /* Descrease height of buttons */
   :root {
-    --btn-height: 40px;
+    /*--btn-height: 50px;*/
   }
 
   /* Decrease font size */
   header, div, h1, h2, h3, p, a {
-    font-size: 1rem;
+    /*font-size: 1rem;*/
   }
 
   /* Decrease padding between control areas */
   .ui-group {
-    padding: 20px 10px 20px 20px;
+    padding: 15px 10px 15px 20px;
   }
 
   /* Decrease padding in logo box */

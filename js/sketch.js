@@ -38,25 +38,9 @@ var shapeYMax; // bottom barrier of where shape can be
 var osc; // osciallator
 var env; // envelope
 
-// method to get the browswer width
-function getBrowserWidth() {
-  // calculate container height
-  if (window.innerWidth < smallBreakpoint) {
-    uiContainerHeight = 0;
-  } else if (window.innerWidth >= smallBreakpoint && window.innerWidth <= midBreakpoint){
-    uiContainerHeight = 80;
-  } else {
-    uiContainerHeight = 90;
-  }
-
-  // set CSS variable
-  var h = document.getElementById("ui-container");
-  h.style.setProperty("--container-height", uiContainerHeight + "px");
-}
-
 function setup() {
   // get the current broswer width
-  getBrowserWidth();
+  setContainerHeight();
   cw = window.innerWidth;
   ch = window.innerHeight - uiContainerHeight;
   canvas = createCanvas(cw, ch);
@@ -116,16 +100,19 @@ function keyPressed() {
   }
 }
 
+// method to update the tempo (velocity) of bubbles when user changes it
 function updateTempo(v) {
   for (var i = 0; i < bubbles.length; i++) {
     bubbles[i].updateVelocity(v);
   }
 }
 
+// method to toggle between play/pause mode
 function togglePlaying() {
   var p1 = document.getElementById("play-button");
   var p2 = document.getElementById("pause-button");
 
+  // check if it's currently playing
   if (looping == true) {
     // stop playig
     noLoop();
@@ -237,13 +224,14 @@ function draw() {
 
 // Method to resize canvas
 function windowResized() {
-  // get the new broswer width
-  getBrowserWidth();
+  // get the new broswer width & set container height
+  setContainerHeight();
+
   // update canvas dimensions
   cw = window.innerWidth;
   ch = window.innerHeight - uiContainerHeight;
+
   // draw canvas
   canvas = createCanvas(cw, ch);
   canvas.id("main-canvas");
-
 }

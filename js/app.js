@@ -70,8 +70,6 @@ function setContainerHeight() {
   // calculate container height
   if (browserWidth < smallBreakpoint) {
     uiContainerHeight = 0;
-  } else if (browserWidth >= smallBreakpoint && browserWidth <= midBreakpoint){
-    uiContainerHeight = 80;
   } else {
     uiContainerHeight = 80;
   }

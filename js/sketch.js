@@ -134,15 +134,31 @@ function togglePlaying() {
 
 // create a bubble when mouse is pressed
 function mousePressed() {
+  // add a new bubble
+  addBubble(mouseX, mouseY);
+  // prevent default
+  return false;
+}
+
+// create a bubble when canvas is touched
+function touchStarted() {
+  // add a new bubble
+  addBubble(mouseX, mouseY);
+  // prevent default
+  return false;
+}
+
+// method to add a new bubble on mousepress or touch
+function addBubble(x, y) {
   if (browserWidth > smallBreakpoint) {
     if (mouseX < cw && mouseY < ch && looping) {
-      createBubble(mouseX, mouseY);
+      createBubble(x, y);
     }
   } else {
     if (mouseX > cw - 82 && mouseY > ch - 164) {
       // do nothing
     } else {
-      createBubble(mouseX, mouseY);
+      createBubble(x, y);
     }
   }
 }

@@ -11,6 +11,6 @@ When a bubble collides with the "walls" of your browser window, it plays a tone 
 
 ### Thanks
 This project couldn't have been done without:
-* [p5js] (https://p5js.org/)
-* [Daniel Shiffman] (http://shiffman.net/)
-* [This bouncing ball example by Keith Peters] (https://processing.org/examples/bouncybubbles.html)
+* [p5js](https://p5js.org/)
+* [Daniel Shiffman](http://shiffman.net/)
+* [This bouncing ball example by Keith Peters](https://processing.org/examples/bouncybubbles.html)

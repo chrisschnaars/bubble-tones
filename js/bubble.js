@@ -11,6 +11,7 @@ var Bubble = function(x, y) {
 	this.d = this.m * 5;	// diameter of the bubble
 	this.f = color(255);	// current color of the bubble. every bubble starts as white
 	this.tone = 0;	// current tone of the bubble. starts off as empty.
+	this.maxVelocity = 5;	// max speed of bubble
 
 	// update velocity when tempo is changed
 	this.updateVelocity = function(desiredSpeed) {
@@ -28,6 +29,8 @@ var Bubble = function(x, y) {
 		this.vel.add(this.acc);
 		this.pos.add(this.vel);
 		this.acc.mult(0);	// don't let acceleration accumulate
+
+		this.vel.limit(this.maxVelocity);	// limit the velocity
 	}
 
 	// display the bubble

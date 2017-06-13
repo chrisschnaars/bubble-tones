@@ -137,7 +137,7 @@ function mousePressed() {
   // add a new bubble
   addBubble(mouseX, mouseY);
   // prevent default
-  return false;
+  // return false;
 }
 
 // create a bubble when canvas is touched
@@ -151,7 +151,7 @@ function touchStarted() {
 // method to add a new bubble on mousepress or touch
 function addBubble(x, y) {
   if (browserWidth > smallBreakpoint) {
-    if (mouseX < cw && mouseY < ch && looping) {
+    if (x < cw && y < ch && looping) {
       createBubble(x, y);
     }
   } else {
@@ -242,7 +242,7 @@ function draw() {
 function windowResized() {
 
   location.reload();
-  
+
   // get the new broswer width & set container height
   setContainerHeight();
 

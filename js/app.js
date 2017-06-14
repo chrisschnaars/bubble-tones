@@ -31,9 +31,6 @@ function main() {
   // set container height
   setContainerHeight()
 
-  // set CSS variable
-  document.documentElement.style.setProperty("--(container-height)", uiContainerHeight + "px");
-
   // Get the default key selection
   var keys = document.getElementsByName("musicalKey");
   for (var i = 0; i < keys.length; i++) {
@@ -59,6 +56,12 @@ function main() {
 
   // set initial tone vlaues
   updateTones(musicKey, scaleId);
+
+  // event listener for adding bubbles
+  var cc = document.getElementById("main-canvas");
+  cc.addEventListener("click", function(event){createBubble(mouseX, mouseY);event.preventDefault()}, false);
+  cc.addEventListener("touchend", function(event){createBubble(mouseX, mouseY);event.preventDefault()}, false);
+
 }
 
 // method to set container height based on browser width

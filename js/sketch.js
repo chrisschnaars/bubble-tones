@@ -132,41 +132,43 @@ function togglePlaying() {
   }
 }
 
-// create a bubble when mouse is pressed
-function mousePressed() {
-  // add a new bubble
-  addBubble(mouseX, mouseY);
-  // prevent default
-  // return false;
-}
+// // create a bubble when mouse is pressed
+// function mousePressed() {
+//   // add a new bubble
+//   addBubble(mouseX, mouseY);
+//   // prevent default
+//   // return false;
+// }
 
-// create a bubble when canvas is touched
-function touchStarted() {
-  // add a new bubble
-  addBubble(mouseX, mouseY);
-  // prevent default
-  return false;
-}
+// // create a bubble when canvas is touched
+// function touchEnded() {
+//   // add a new bubble
+//   addBubble(mouseX, mouseY);
+//   // prevent default
+//   // return false;
+// }
 
 // method to add a new bubble on mousepress or touch
-function addBubble(x, y) {
-  if (browserWidth > smallBreakpoint) {
-    if (x < cw && y < ch && looping) {
-      createBubble(x, y);
-    }
-  } else {
-    if (mouseX > cw - 82 && mouseY > ch - 164) {
-      // do nothing
-    } else {
-      createBubble(x, y);
-    }
-  }
-}
+// function addBubble(x, y) {
+//   if (browserWidth > smallBreakpoint) {
+//     if (x < cw && y < ch && looping) {
+//       createBubble(x, y);
+//     }
+//   } else {
+//     if (mouseX > cw - 82 && mouseY > ch - 164) {
+//       // do nothing
+//     } else {
+//       createBubble(x, y);
+//     }
+//   }
+// }
 
 // method to add a new bubble to the array
-function createBubble(x, y) {
-  var b = new Bubble(x, y);
-  bubbles.push(b);
+function createBubble(x, y, event) {
+  if (looping) {
+    var b = new Bubble(x, y);
+    bubbles.push(b);
+  }
 }
 
 // main animation method
@@ -240,16 +242,13 @@ function draw() {
 
 // Method to resize canvas
 function windowResized() {
-
+  // reload canvas when window is resized
   location.reload();
-
   // get the new broswer width & set container height
   setContainerHeight();
-
   // update canvas dimensions
   cw = window.innerWidth;
   ch = window.innerHeight - uiContainerHeight;
-
   // draw canvas
   canvas = createCanvas(cw, ch);
   canvas.id("main-canvas");

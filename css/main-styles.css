@@ -507,4 +507,9 @@ RESPONSIVENESS -- SMALLEST SCREENS
   #close-button {
     margin: 0 10px 10px 0;
   }
+
+  /* Decrease margin of info panel paragraphs */
+  p.info-panel {
+    margin-bottom: 2rem;
+  }
 }

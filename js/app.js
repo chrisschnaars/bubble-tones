@@ -58,9 +58,24 @@ function main() {
   updateTones(musicKey, scaleId);
 
   // event listener for adding bubbles
-  var cc = document.getElementById("main-canvas");
-  cc.addEventListener("click", function(event){createBubble(mouseX, mouseY);event.preventDefault()}, false);
-  cc.addEventListener("touchend", function(event){createBubble(mouseX, mouseY);event.preventDefault()}, false);
+  var mc = document.getElementById("main-canvas");
+  mc.addEventListener("click", function(event){createBubble(mouseX, mouseY);event.preventDefault()}, false);
+  mc.addEventListener("touchend", function(event){createBubble(mouseX, mouseY);event.preventDefault()}, false);
+
+  // event listener for play / pause button
+  var pb = document.getElementById("play-pause");
+  pb.addEventListener("click", function(event){togglePlaying();event.preventDefault()},false);
+  pb.addEventListener("touchend", function(event){togglePlaying();event.preventDefault()},false);
+
+  // event listener for info panel
+  var lc = document.getElementById("logo-container");
+  lc.addEventListener("click", function(event){toggleInfoPanel();event.preventDefault()},false);
+  lc.addEventListener("touch", function(event){toggleInfoPanel();event.preventDefault()},false);
+
+  // event listener for close button
+  var cb = document.getElementById("close-button");
+  cb.addEventListener("click", function(event){toggleInfoPanel();event.preventDefault()},false);
+  cb.addEventListener("touch", function(event){toggleInfoPanel();event.preventDefault()},false);
 
 }
 
@@ -135,8 +150,6 @@ function toggleInfoPanel() {
 
     // set info panel to not hidden
     infoPanelHidden = false;
-
-    console.log(looping, wasLooping);
 
   } else {
     // close the info panel

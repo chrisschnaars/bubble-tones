@@ -59,6 +59,7 @@ div {
 canvas {
   vertical-align: top;
   z-index: -1;
+  cursor: crosshair;
 }
 
 /* Global Right Aligh */

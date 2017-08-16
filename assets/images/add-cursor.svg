@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="73px" height="73px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>add-cursor</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="add-cursor">
+            <g id="Group">
+                <path d="M4.9375,19 L33.0625,19 C33.58,19 34,18.7765 34,18.5 C34,18.2235 33.58,18 33.0625,18 L4.9375,18 C4.42,18 4,18.2235 4,18.5 C4,18.7765 4.4190625,19 4.9375,19 Z" id="Shape" fill="#000000" fill-rule="nonzero"></path>
+                <path d="M4.9375,19 L33.0625,19 C33.58,19 34,18.7765 34,18.5 C34,18.2235 33.58,18 33.0625,18 L4.9375,18 C4.42,18 4,18.2235 4,18.5 C4,18.7765 4.4190625,19 4.9375,19 Z" id="Shape" fill="#000000" fill-rule="nonzero" transform="translate(19.000000, 18.500000) rotate(90.000000) translate(-19.000000, -18.500000) "></path>
+                <circle id="Oval-2" stroke="#000000" cx="18.5" cy="18.5" r="18"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -35,7 +35,8 @@ var shapeYMin; // top barrier of where shape can be
 var shapeYMax; // bottom barrier of where shape can be
 
 // osciallatopr settings
-var osc; // osciallator
+var osc1; // osciallator `
+var osc2; // osciallator`
 var env; // envelope
 
 function setup() {
@@ -53,14 +54,16 @@ function setup() {
 
   // create envelope
   env = new p5.Env();
-  env.setADSR(0.001, 0.5, 0.1, 0.5);
+  // env.setADSR(0.001, 0.5, 0.1, 0.5);
+  env.setADSR(0, 0, 1, 0.6);
   env.setRange(1, 0);
 
-  // create osciallator
-  osc = new p5.Oscillator();
-  osc.setType("sine");
-  osc.amp(0);
-  osc.start();
+  // create  oscialltor 1
+  osc1 = new p5.Oscillator();
+  osc1.setType("sine");
+  osc1.amp(0);
+  osc1.start();
+
 
   // define colors
   c0 = color(110, 211, 207); // blue-green color
@@ -89,8 +92,8 @@ function setup() {
 
 // method to play tone
 function playTone(f) {
-  osc.freq(f);
-  env.play(osc, 0, 0.2);
+  osc1.freq(f);
+  env.play(osc1, 0, 0.2);
 }
 
 // Pause the sketch with space bar

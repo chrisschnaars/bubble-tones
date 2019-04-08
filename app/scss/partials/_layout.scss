@@ -1,0 +1,228 @@
+/**************************************
+ONBOARDING
+**************************************/
+
+// ONBOARDING MODAL
+.onboarding-container {
+  // LAYOUT
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  z-index: 100;
+  // opacity: 0.75;
+  visibility: visible;
+  padding: 1rem;
+  padding-bottom: 5rem;
+  // APPEARANCE
+  background-color: $primary-color;
+  // FLEXBOX
+  @include flexbox;
+  @include flex-flow(column nowrap);
+  @include justify-content(center);
+  @include align-items(center);
+  // BEHAVIOR
+  pointer-events: none;
+  @include transition(opacity $animate-time-fast linear);
+  @include transition(visibility $animate-time-fast linear);
+  // RESPONSIVE
+  @include bp1 {
+    padding: 2rem;
+  }
+}
+
+// HIDDEN CLASS
+.onboarding-container-hidden {
+  // APPEARANCE
+  opacity: 0;
+  visibility: hidden;
+  // BEHAVIOR
+  pointer-events: none;
+  @include transition(all 0.10s linear);
+  // @include transition(visibility $animate-time-fast linear);
+}
+
+.onboarding-content-container {
+  // LAYOUT
+  margin: 0;
+  width: 100%;
+  max-width: $content-max-width;
+  // FLEXBOX
+  @include flexbox;
+  @include flex-flow(column nowrap);
+  @include justify-content(center);
+  // @include border-radius(160px);
+  text-align: center;
+}
+// ONBOARDING CONTENT
+.onboarding-content {
+  text-align: center;
+}
+
+
+/**************************************
+MAIN INTERACTION AREA
+**************************************/
+
+#main-container {
+  // APPEARANCE
+  // background-color: $bgColor;
+}
+
+canvas {
+  vertical-align: top;
+  // z-index: -  1;
+  cursor: pointer;
+  @include bp1 {
+    position: fixed;
+    overflow: hidden;
+  }
+}
+
+/**************************************
+CONTROL BAR AND CONTROLS
+**************************************/
+
+// SHARED STYLES
+#control-bar {
+  // LAYOUT
+  width: 100%;
+  padding: 1rem 2rem;
+  height: $control-bar-height;
+  // FLEXBOX
+  @include flexbox;
+  @include flex-flow(column nowrap);
+  @include justify-content(center);
+  // APPERANCE
+  background: $white;
+  border-top: 2px solid $gray-1;
+  // RESPONSIVE
+  @include bp1 {
+    // LAYOUT
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 1rem 1.5rem;
+  }
+}
+
+// CONTAINER FOR ALL CONTROL ELEMENTS
+#controls-container {
+  // LAYOUT
+  width: 100%;
+  margin: 0 auto;
+  max-width: $control-bar-max-width;
+  // FLEXBOX
+  @include flexbox;
+  @include flex-flow(row nowrap);
+  @include justify-content(space-between);
+}
+
+/**************************************
+INDIVIDUAL CONTROL ELEMENT CONTAINERS
+**************************************/
+
+// GLOBAL STYLES FOR ALL CONTAINERS
+.control-element {
+  // LAYOUT
+  width: 100%;
+  margin-right: 2.5rem;
+  @include bp1 {
+    width: auto;
+    margin-right: 1.5rem;
+  }
+}
+
+// REDUCED SIZES FOR BUTTONS
+.primary-btn-element {
+  max-width: $primary-btn-size;
+}
+
+.secondary-btn-element {
+  max-width: $default-btn-size;
+  // FLEXBOX
+  @include flexbox;
+  @include flex-flow(column nowrap);
+  @include justify-content(center);
+}
+
+// CONTAINER FOR EACH CONTROL
+.control-element {
+  &:last-child {
+    margin-right: 0;
+  }
+  // @include flex(auto);
+}
+
+/**************************************
+SPECIFIC CONTROL ELEMENTS
+**************************************/
+
+// TEMPO CONTROL
+.tempo-control {
+  @include bp1 {
+    @include flex(auto);
+  }
+}
+
+/**************************************
+ABOUT MODAL
+**************************************/
+
+// FULL SCREEN MODAL STYLE
+.modal {
+  // LAYOUT
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  z-index: 100;
+  opacity: 0;
+  padding: 1.25rem;
+  // APPEARANCE
+  background-color: $white;
+  display: none;
+  // BEHAVIOR
+  pointer-events: none;
+  // RESPONSIVE
+  @include bp1 {
+    position: fixed;
+  }
+}
+
+// OPEN MODAL
+.modal.visible {
+  // APPEARANCE
+  opacity: 0.98;
+  display: block;
+  // BEHAVIOR
+  pointer-events: auto;
+}
+
+// ABOUT CONTENT CONTAINER
+.about-content {
+  // LAYOUT
+  margin: 0 auto;
+  padding-top: 5rem;
+  width: 100%;
+  max-width: $content-max-width;
+}
+
+/**************************************
+GENERAL POSITIONING
+**************************************/
+
+// CENTER TEXT ON SMALLEST SCREENS
+.t-ctr-bp1 {
+  @include bp1 {
+    text-align: center;
+  }
+}
+
+// CONTENT SECTIONS
+.content-section {
+  // LAYOUT
+  margin-bottom: 2rem;
+}

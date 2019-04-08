@@ -1,0 +1,21 @@
+/// ===========================================
+// LINKS
+// ===========================================
+
+// GLOBAL LINK STYLE
+a {
+  color: $primary-color;
+  text-decoration: none;
+  border-bottom: 1px solid $primary-color;
+
+}
+
+a:hover {
+  // border-bottom: 1px solid $primary-color;
+  border: none;
+  opacity: 0.75;
+}
+
+a:visited {
+  color: $primary-color;
+}

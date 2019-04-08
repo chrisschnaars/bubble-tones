@@ -1,0 +1,92 @@
+/**************************************
+TYPOGRAPHY & SIZING
+**************************************/
+
+$base-font-size:         16px !default;
+
+// FONT WEIDGHTS
+$font-weight-heavy:      700 !default;
+$font-weight-normal:     400 !default;
+
+// MEGA - USED FOR BIG ONBOARDING HINT
+$mega-font-size:         2.5rem !default;
+$mega-font-size-sm:      1.75rem !default;
+
+// HEADLINE
+$headline-font-size:      1.5rem !default;
+$headline-line-height:    150% !default;
+
+// CONTENT
+$content-font-size:       1.125rem !default;
+$content-line-height:     150% !default;
+
+// CONTROL BUTTON LABELS
+$ui-label-font-size:      .9375rem !default;
+$ui-label-font-size-sm:   .8125rem !default;
+$ui-label-line-height:    1.25rem !default;
+
+// CONTROL BUTTON TYPE
+$ui-type-size:            0.875rem !default;
+$ui-line-height:          1rem !default;
+
+
+/**************************************
+GRIDS AND SPACING
+**************************************/
+
+// GLOBAL SPACING UNIT
+$spacing-unit: 1rem;
+
+// GLOBAL PADDING
+$global-container-side-padding: 2.5rem;
+
+// CONTROL BAR
+$control-bar-max-width:      60rem !default; // Max width of contorl bar
+$control-bar-height:         6rem !default; // Max height of control bar
+$control-container-height:   4rem !default;
+$controls-height:            2.25rem !default; // height of control UI (not including label)
+
+// BUTTON SIZES
+$primary-btn-size:           $control-container-height !default;
+$default-btn-size:         3rem !default;
+
+// CONTENT
+$content-max-width:       38rem !default;
+
+
+/**************************************
+COLOR PALETTE
+**************************************/
+
+// BACKGROUND COLORS
+$bgColor: #FAF9F7 !default;
+
+// GRAYSCALE
+$white:  #FFFFFF;
+$gray-1: #EBEDEF;
+$gray-2: #DBDEE1;
+$gray-3: #565E67;
+$black:  #1F2123;
+
+// UI COLOR
+$primary-color:         #15A3BC !default;
+$primary-color-dark:    #118397 !default;
+
+/**************************************
+ANIMATION BEHAVIORS
+**************************************/
+
+$animate-time-fast:     0.15s !default;
+$animate-time-slow:     0.35s !default;
+
+/**************************************
+STYLING
+**************************************/
+
+$btn-border-radius: 0.25rem;
+
+/**************************************
+RESPONSIVE BREAKPOINTS
+**************************************/
+
+$bp-1: 37.5rem; // 600px

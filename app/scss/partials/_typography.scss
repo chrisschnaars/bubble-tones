@@ -1,0 +1,72 @@
+/*
+ ALL INTERACTIVE CONTROLS
+*/
+
+h1 {
+  font-size: $headline-font-size;
+  line-height: $headline-line-height;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-weight: 700;
+  line-height: $headline-line-height;
+}
+
+// CONTENT
+p {
+  font-size: $content-font-size;
+  line-height: $content-line-height;
+}
+
+// CONTROL LABELS
+label, p.control-label {
+  font-weight: 700;
+  font-size: $ui-label-font-size;
+  line-height: $ui-label-line-height;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025rem;
+  display: block;
+  // RESPONSIVE
+  @include bp1 {
+    font-size: $ui-label-font-size-sm;
+  }
+}
+
+// CONTENT STYLES
+p.content {
+  margin-bottom: 1rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// PARAGRAPH HEADLINE
+p.headline {
+  @extend h2;
+  margin-bottom: 1rem;
+}
+
+// GLOBAL STYLE CHANGLES
+.h1 {
+  @extend h1;
+  margin-bottom: 0;
+}
+
+// ONBOARDING HINT
+.mega {
+  font-weight: $font-weight-heavy;
+  font-size: $mega-font-size;
+  line-height: 120%;
+  // RESPONSIVE
+  @include bp1 {
+    font-size: $mega-font-size-sm;
+  }
+}
+
+// GLOBAL WHITE FONT COLOR
+.white {
+  color: $white;
+}

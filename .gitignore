@@ -1,5 +1,13 @@
-# design files
-/-design
+# admin files
+/-admin
 
-# notes files
-/-notes
+# BUILD FILES
+/tmp
+/dist
+*/assets
+
+#DEPENDENCIES
+/node_modules
+package-lock.json
+package.json
+gulpfile.js

@@ -5,6 +5,7 @@
 /tmp
 /dist
 */assets
+.gitignore
 
 #DEPENDENCIES
 /node_modules

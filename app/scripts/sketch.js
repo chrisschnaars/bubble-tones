@@ -21,10 +21,10 @@ var spacer = 20; // DISTANCE BETWEEN BUBBLE AND WALL TO PLAY TONE
 // COLOR SETTINGS
 var bgColor;
 var bubbleColors = [
-  [ '#F84630', '#D41E07'],
+  [ '#EE5D96', '#D0155E'],
   [ '#FEEE46', '#EFDA01'],
   [ '#55B98F', '#388967'],
-  [ '#156BBC', '#0F4C85']
+  [ '#0096D8', '#0071A3']
 ];
 
 // SET CANVAS SIZE

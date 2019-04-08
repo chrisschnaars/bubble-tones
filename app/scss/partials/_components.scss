@@ -4,18 +4,16 @@
 
 // GLOBAL LINK STYLE
 a {
-  color: $primary-color;
+  color: $black;
   text-decoration: none;
-  border-bottom: 1px solid $primary-color;
+  border-bottom: 2px solid $primary-color;
 
 }
 
 a:hover {
-  // border-bottom: 1px solid $primary-color;
-  border: none;
-  opacity: 0.75;
+  color: $primary-color;
 }
 
 a:visited {
-  color: $primary-color;
+  // color: $primary-color;
 }

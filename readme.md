@@ -1,5 +1,5 @@
 # Bubble Tones
-Bubble Tones is a generative music tool that produces a unique musical creation with each use.
+Bubble Tones is a generative sound tool that produces a unique musical creation with each use.
 
 ## How To Play
 In Bubble Tones, sounds are made when a Bubble hits a wall or the larger bubbles (aka Roadblocks). To add a Bubble, just click or tap anywhere on the screen. You can add up to six Bubbles at a time.

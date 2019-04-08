@@ -1,15 +1,31 @@
 # Bubble Tones
-Bubble tones is a cutomizable generative music program that aims to produce pleasing, unpredictable, elevator-quality tones. It is powered by p5*js.
+Bubble Tones is a generative music tool that produces a unique musical creation with each use.
 
-### Using Bubble Tones
-Using Bubble Tones is easy. If you're looking to enjoy tones with zero effor, simply launch the site and listen. The single bubble will produce a tone each time it connects with a wall or a circle in the middle of the screen.
+## How To Play
+In Bubble Tones, sounds are made when a Bubble hits a wall or the larger bubbles (aka Roadblocks). To add a Bubble, just click or tap anywhere on the screen. You can add up to six Bubbles at a time.
 
-For more sophisticated tones, try clicking/tapping inside the screen to add more bubbles. The more bubbles, the more opportunities for unique blends of tones.
+## Keyboard Shortcuts
+Q: Add a Bubble
+P: Remove a Bubble
+Spacebar: Play/Pause Bubble Tones
 
-### Audio Interactions
-When a bubble collides with the "walls" of your browser window, it plays a tone based on the selected key and scale.
+## Audio Interactions
+The tones that play when Bubbles collide with the wall are selected from the root tone’s major and minor scales. The selection of the scale and tone has some randomness built in, which is intended to create even more unexpected variety in each composition.
 
-### Thanks
+Here is a breakdown of how that works:
+The root frequency, which determines all other tones, is set at the start to 220 Hz, which is the A3 note in the equal-tempered scale. Users can adjust this frequency using the "Tone" slider. The lowest frequency is set to 110 Hz (A2), and the highest frequency is 330 Hz (A4).
+
+One of the ways tones are generated is when a Bubble collides with a wall. Each wall is set to play a note within the major or minor scale of the root frequency. Each wall has two note options (one with a higher probability of playing) that is selected randomly with each collision. The options are:
+Top wall: Root note or octave
+Right wall: Major third or minor third
+Bottom wall: Perfect fourth or minor seventh
+Left wall: Perfect fifth or sixth
+
+The other way tones are generated is when a Bubble collides with a Roadblock (the larger, more stationary bubbles). There is one Roadblock for each wall, but Roadblocks are visible after a Bubble collides with each of the walls for the first time. Roadblocks will play the same note that their wall is set to, but at an octave lower (half the frequency).
+
+The tone selection for each wall and Roadblock happens with each collision, meaning that the sound will be in a constant state of flux. Hopefully this makes it enjoyable.
+
+## Thanks
 This project couldn't have been done without:
 * [p5js](https://p5js.org/)
 * [Daniel Shiffman](http://shiffman.net/)

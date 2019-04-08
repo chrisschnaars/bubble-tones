@@ -3,7 +3,6 @@
 
 # BUILD FILES
 /tmp
-/dist
 */assets
 .gitignore
 

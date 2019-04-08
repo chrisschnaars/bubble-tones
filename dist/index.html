@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title data-head="true">Sound Tools | Bubble Tones</title>
+    <meta name="description" content="A generative music-making tool for kids and adults." data-head="true"/>
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon.ico">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+    <!-- P5 LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+
+  </head>
+
+  <body>
+    <!-- ONBOARDING -->
+    <div class="onboarding-container">
+      <div class="onboarding-content-container">
+        <p class="headline white">Welcome to Bubble Tones</p>
+        <p class="mega h1 white">Click or tap anywhere to create your first bubbles.</p>
+      </div>
+    </div>
+
+    <!-- CANVAS CONTAINER -->
+    <div id="main-container">
+    </div>
+
+    <div id="control-bar">
+      <div id="controls-container">
+        <!-- PLAY/PAUSE BUTTON -->
+        <div class="control-element primary-btn-element">
+          <button id="play-toggle" class="primary-button round pause-btn" type="button" name="mute">
+            <!-- "Mute" -->
+          </button>
+        </div>
+
+        <!-- TONE CONTROL -->
+        <div class="control-element tone-control">
+          <div class="slider-info-container">
+            <label for="tone" class="control-label">Tone</label>
+          </div>
+          <input name="tone" id="tone" type="range" min="110" max="440" value="220" step="1" aria-valuemin="110" aria-valuemax="440" aria-valuenow="220">
+        </div>
+
+        <!-- TEMPO CONTROL -->
+        <div class="control-element tempo-control">
+          <div class="slider-info-container">
+            <label for="tempo" class="control-label">Speed</label>
+          </div>
+          <input name="tempo" id="tempo" type="range" min="1" max="25" value="2" step="0.1" aria-valuemin="1" aria-valuemax="25" aria-valuenow="2">
+        </div>
+
+        <!-- ABOUT MODAL BUTTON -->
+        <div class="control-element secondary-btn-element">
+          <button id="about-modal-open" class="round about-btn" type="button" name="about">
+            <!-- "Mute" -->
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ABOUT MODAL  -->
+    <div id="about-modal" class="modal">
+      <button id="about-modal-close" class="round close-btn" type="button" name="Close">
+        <!-- "Close" -->
+      </button>
+      <div class="about-content">
+        <!-- TITLE -->
+        <div class="content-section">
+          <h1>Bubble Tones</h1>
+        </div>
+
+        <!-- HOW TO PLAY -->
+        <div class="content-section">
+          <h2>How To Play</h2>
+          <p class="content">In Bubble Tones, sounds are made when a Bubble hits a wall or the larger bubbles (aka Roadblocks). To add a Bubble, just click or tap anywhere on the screen. You can add up to six Bubbles at a time.</p>
+        </div>
+
+        <!-- KEYBOARD SHORTCUTS -->
+        <div class="content-section">
+          <h2>Keyboard Shortcuts</h2>
+          <p class="content">
+            Q: Add a Bubble
+            <br>
+            P: Remove a Bubble
+            <br>
+            Spacebar: Play/Pause Bubble Tones
+          </p>
+        </div>
+
+        <!-- ABOUT -->
+        <div class="content-section">
+          <h2>About Bubble Tones</h2>
+          <p class="content">Bubble Tones is a generative sound tool that produces a unique musical creation with each use.
+
+          <p class="content">The tones that play when Bubbles collide with the wall are selected from the root tone’s major and minor scales. The selection of the scale and tone has some randomness built in, which is intended to create even more unexpected variety in each composition.</p>
+
+          <p class="content">Bubble Tones was created by <a href="https://chrisschnaars.com/">Chris Schnaars</a>. Please <a href="mailto:hello@chrisschnaars.com">get in touch</a> with any questions, problems, or feedback. You can find more info on Bubble Tones at <a href="https://github.com/chrisschnaars/bubble-tones">Github</a> and more generative sound tools <a href="https://schnaars.xyz/">here</a>.</p>
+
+        </div>
+    </div>
+  </div>
+
+  <!-- Load Main Script  -->
+  <script src="js/main.js"></script>
+
+  </body>
+</html>

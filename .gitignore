@@ -4,7 +4,7 @@
 # BUILD FILES
 /tmp
 */assets
-.gitignore
+*.gitignore
 
 #DEPENDENCIES
 /node_modules

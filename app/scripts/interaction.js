@@ -85,6 +85,13 @@ document.addEventListener('keydown', function(e) {
   if (e.key == " " || e.key == "Spacebar") {
     togglePlaying();
   }
+
+  // TABBING
+  if (e.key === 'Tab') { // the "I am a keyboard user" key
+      console.log('tab key man');
+      document.body.classList.add('user-is-tabbing');
+      // window.removeEventListener('keydown', handleFirstTab);
+  }
 });
 
 /************************************************

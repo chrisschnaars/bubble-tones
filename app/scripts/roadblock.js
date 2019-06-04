@@ -2,9 +2,21 @@
 ROADBLOCK CREATION
 ************************************************/
 
+// ROADBLOCK ARRAY
+let roadblocks = []; // array of bigger bubbles that block smaller bubbles
+
+// ROADBLOCK SETTINGS
+const roadBlockFillSize = 80;
+const roadBlockStrokeSize = 4
+const roadBlockSize = roadBlockFillSize + roadBlockStrokeSize;	// PX DIAMETER OF BUBBLE
+
+// ROADBLOCK QUANTITY
+const numRoadblocks = 4; // MAX # OF BUBBLES (KEEP LOW FOR PERFORMANCE)
+
+// INITIALIZE ROADBLOCKS
 function createRoadblocks() {
-  for (var i = 0; i < 4; i++) {
-    roadblocks[i] = new roadblock(i);
+  for (let i = 0; i < numRoadblocks; i++) {
+    roadblocks[i] = new Roadblock(i);
   }
 }
 
@@ -12,66 +24,55 @@ function createRoadblocks() {
 ROADBLOCK OBJECT
 ************************************************/
 
-var roadblock = function(id) {
+function Roadblock(id) {
   this.pos = createVector(0, 0);
-	this.vel = createVector(0, 0);
-	this.acc = createVector(0, 0);
-  this.d = 80; // DIAMETER
-  this.tone = notes[id] / 2;  // PLAY OCTAVE BELOW NOTE
-  this.f = bubbleColors[id][0]; // FILL COLOR
-  this.s = bubbleColors[id][1]; // STROKE COLOR
+  this.d = roadBlockSize; // DIAMETER
   this.visible = false; // ROADBLOCK IS HIDDEN UNTIL ACTIVATED
-  this.id = id; // circle id
-  this.hit = true;  // boolean to check if the circle is overlapping
-  this.hitCount = -1;  // COUNTER FOR HOW MANY HITS ROADBLOCK HAS
-}
-
-// DISPLAY THE ROADBLOCK
-roadblock.prototype.display = function() {
-  push();
-  // DRAWING SETTINGS
-  strokeWeight(4);
-  // DRAW ROADBLOCK
-  fill(this.s);
-  noStroke();
-  // stroke(this.s);
-  ellipse(this.pos.x, this.pos.y, this.d, this.d);
-  pop();
+  this.id = id; // ROADBLOCK ID
+  this.hitCount = 0;  // COUNTER FOR HOW MANY HITS ROADBLOCK HAS
+  this.offX = (bubbleSize * numUniqueBubbles) + (this.d * id);	// x position of offscreen canvas image
+	this.offY = 0; // y position of offscreen canvas image
 }
 
 // UPDATE ROADBLOCK HITCOUNT
-roadblock.prototype.update = function() {
-  // NUMBER OF HITS BEFORE ROADBLOCK MOVES
-  var maxCount = 8;
+Roadblock.prototype.toggle = function() {
+  // SET QUANTITY OF HITS NEEDED TO MOVE ROADBLOCK
+  const maxHitCount = 8;
 
-  // UPDATE HIT COUNT
+  // UPDATE HITCOUNT
   this.hitCount++;
 
-  if (!this.visible || this.hitCount > maxCount) {
-    this.updatePosition();
+  // TOGGLE VISIBILITY IF HIDDEN
+  if (!this.visible || this.hitCount > maxHitCount) {
     this.visible = true;
+    this.updatePosition();
   }
-}
+};
+
+// DISPLAY THE ROADBLOCK IMAGE
+Roadblock.prototype.display = function() {
+  image(offCanvas, this.pos.x - this.d/2, this.pos.y - this.d/2, this.d, this.d, this.offX, this.offY, this.d, this.d);
+};
 
 // UPDATE ROADBLOCK POSITION
-roadblock.prototype.updatePosition = function() {
+Roadblock.prototype.updatePosition = function() {
   // SET PARAMETERS FOR ROADBLOCK COORIDNATES
-  var p = 100; // MIN SPACE BETWEEN CANVAS EDGE AND ROADBLOCK
-  var xMin = p;
-  var xMax = cw - p;
-  var yMin = p;
-  var yMax = ch - p;
+  const p = 100; // MIN SPACE BETWEEN CANVAS EDGE AND ROADBLOCK
+  let xMin = p;
+  let xMax = cw - p;
+  let yMin = p;
+  let yMax = ch - p;
 
   // CREATE RANDOM COORDINATES
-  var x1 = random(xMin, xMax);
-  var y1 = random(yMin, yMax);
+  let x1 = Math.floor(getRandomNumber(xMin, xMax));
+  let y1 = Math.floor(getRandomNumber(yMin, yMax));
 
   // CHECK OVERLAP
-  for (var i = 0; i < roadblocks.length; i++) {
+  for (let i=0; i < roadblocks.length; i++) {
     if (this.id != i) {
 
       // OTHER ROADBLOCK
-      var a = roadblocks[i];
+      let a = roadblocks[i];
 
       // CHECK BOTH POSITIONS
       if (dist(x1, y1, a.pos.x, a.pos.y) <= this.d + 2) {
@@ -86,4 +87,4 @@ roadblock.prototype.updatePosition = function() {
       }
     }
   }
-}
+};

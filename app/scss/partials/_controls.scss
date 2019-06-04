@@ -12,9 +12,12 @@ input, button {
   height: $controls-height;
 
   // APPEARANCE
+  background-color: $white;
+	border: 2px solid $black;
   font-size: $ui-type-size;
   line-height: $ui-line-height;
   font-family: inherit;
+  cursor: pointer;
 }
 
 // REMOVE FOCUS WHEN USER IS USING MOUSE
@@ -32,50 +35,59 @@ body:not(.user-is-tabbing) textarea:focus {
 // DEFAULT BUTTON STYLES
 button {
 	// LAYOUT
-  height: $default-btn-size;
-  width: $default-btn-size;
 	display: inline-block;
 	-webkit-appearance: none;
   -moz-appearance: none;
 	margin: 0;
 
 	// APPERANCE
-  background-color: $white;
-	border: 4px solid $primary-color;
+  color: $black;
 	text-align: center;
 	text-decoration: none;
   @include padding(0, 1.25);
-  @include border-radius($btn-border-radius);
   @include btn-shadow;
+  @include border-radius($btn-border-radius);
 
 	// BEHAVIOR
   // @include transition(background $animate-time-fast ease-in-out);
 }
 
-button:hover {
+button:hover, button:focus {
   // APPEARANCE
-  cursor: pointer;
-  opacity: 0.9;
+  background-color: $gray-1;
   box-shadow: none;
 }
 
-button:focus {
-  // background-color: $gray-2;
+button:active {
+  background-color: $gray-2;
 }
 
 button > * {
   pointer-events: none;
 }
 
-// ROUND ICON BUTTONS
-button.round {
-  // APPEARANCE
-  @include border-radius(50%);
-  @include padding(0, 0);
-  // BACKGROUND ICON
-  background-repeat: no-repeat;
-  background-size: 1.25rem;
-  background-position: center;
+// ===========================================
+// PRIMARY CONTROL BUTTON STYLES
+// ===========================================
+
+.cta-button {
+  // LAYOUT
+  height: $primary-btn-size;
+  width: 90%;
+  margin: 2rem auto;
+  // APPERANCE
+  background-color: transparent;
+  // BEHAVIOR
+  @include transition(all $animate-time-fast ease-in-out);
+
+  &:hover {
+    @include transform(scale(1.025));
+    opacity: 0.75;
+    // width: 100%;
+  }
+  @include bp($bp-1) {
+    width: 100%;
+  }
 }
 
 // ===========================================
@@ -86,29 +98,36 @@ button.round {
   // LAYOUT
   height: $primary-btn-size;
   width: $primary-btn-size;
+  // APPEARANCE
+  @include border-radius(100%);
   // BACKGROUND ICON
-  background-size: 1.5rem !important;
+  background-size: 2rem !important;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
 
 // ===========================================
-// BUTTON ASSETS
+// ICON-ONLY BUTTON
 // ===========================================
 
-// PLAY BUTTON ICON
-.play-btn {
+.icon-button {
+  // LAYOUT
+  width: $controls-height;
+
+  // APPEARANCE
+  @include border-radius(50%);
+  @include btn-shadow;
+  @include padding(0, 0);
+
   // ICON
-  background-image: url(../assets/img/icons/play-btn.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.75rem;
 }
 
-// UNMUTE BUTTON ICON
-.pause-btn {
-  // ICON
-  background-image: url(../assets/img/icons/pause-btn.svg);
-}
-
-.about-btn {
-  //ICON
-  background-image: url(../assets/img/icons/about.svg);
+.icon-button:active {
+  // background-color: $primary-color;
 }
 
 // ===========================================
@@ -125,17 +144,16 @@ button.round {
   box-shadow: none;
 	text-align: left;
   @include border-radius(0);
-  border-bottom: 1px solid $primary-color;
+  border-bottom: 1px solid $black;
   padding: 0;
   // TEXT
   font-size: $content-font-size;
   line-height: $content-line-height;
-  color: $primary-color;
+  color: $black;
 }
 
 .text-button:hover {
   // APPEARANCE
-  cursor: pointer;
   background-color: $white;
   border-bottom: none;
 }
@@ -145,24 +163,6 @@ button.round {
   background-color: $white;
 }
 
-// ===========================================
-// GLOBAL CLOSE BUTTON
-// ===========================================
-
-button.close-btn {
-  // LAYOUT
-  position: absolute;
-  top: 1.25rem;
-  right: 3rem;
-  // ICON
-  background-image: url(../assets/img/icons/close.svg);
-  // SMALLEST SCREENS
-  @include bp1 {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-  }
-}
 
 // ===========================================
 // TOGGLE GROUP
@@ -179,11 +179,13 @@ div.toggle-group {
 // TOGGLE BUTTON MODIFICATION
 button.toggle {
   // APPEARANCE
-	color: $black;
-  // border: 0.25rem solid $gray-1;
+  height: $controls-height-sm;
+  box-shadow: none;
+  border-left: none;
   // margin-right: 0.25rem;
   @include border-radius(0);
   &:first-child {
+    border-left: 2px solid $black;
     @include border-radii($btn-border-radius, 0, 0, $btn-border-radius);
   }
   &:last-child {
@@ -191,16 +193,24 @@ button.toggle {
   }
   // FLEX ITEM STYLES
   @include flex(1);
+  @include bp($bp-2) {
+    @include flex(0);
+  }
 }
 
-button.toggle:hover {
-	background-color: $gray-2;
-}
 
 // ACTIVE CLASS FOR THE SELECTED BUTTON
 button.toggle.selected {
-	background-color: $primary-color;
-	color: $white;
+	background-color: $gray-2;
+}
+
+// FIX WIDTH OF MINI TOGGLES
+.mini-toggle {
+  padding: 0 0.25rem;
+  width: 6rem;
+  &:active {
+    background-color: $white;
+  }
 }
 
 
@@ -212,6 +222,7 @@ button.toggle.selected {
 input[type=range] {
 	@include input-type-range;
   margin: 0;
+  border: none;
 }
 
 // GROUP FOR SLIDER LABEL AND READOUT
@@ -224,4 +235,71 @@ input[type=range] {
 // RGB SLIDER VALUE READOUT
 .slider-readout {
   margin-left: $spacing-unit / 2;
+}
+
+// ===========================================
+// SPECIFIC BUTTON STYLES
+// ===========================================
+
+// CLOSE BUTTON
+#about-modal-close {
+  // LAYOUT
+  position: absolute;
+  top: 1.25rem;
+  right: 3rem;
+  // SMALLEST SCREENS
+  @include bp1 {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+// ONBOARDING CTA
+#begin-cta {
+  color: $white;
+  border-color: $white;
+}
+
+#begin-cta:hover, #begin-cta:focus {
+  background: transparent;
+
+}
+
+// ===========================================
+// BUTTON ASSETS
+// ===========================================
+
+// PLAY BUTTON ICON
+.play-btn {
+  // ICON
+  background-image: url(../assets/icons/play.svg);
+}
+
+// UNMUTE BUTTON ICON
+.pause-btn {
+  // ICON
+  background-image: url(../assets/icons/pause.svg);
+}
+
+// CLOSE
+.close-btn {
+  // ICON
+  background-image: url(../assets/icons/close.svg);
+}
+
+// UNMUTE BUTTON ICON
+.refresh-btn {
+  // ICON
+  background-image: url(../assets/icons/refresh.svg);
+}
+
+// CLEAR BUTTON
+.clear-btn {
+  background-image: url(../assets/icons/clear.svg);
+}
+
+.info-btn {
+  //ICON
+  background-image: url(../assets/icons/help.svg);
 }

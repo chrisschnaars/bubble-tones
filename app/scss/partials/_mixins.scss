@@ -9,19 +9,12 @@
   }
 }
 
-// HIDE ON SMALLEST SCREENS
-.bp1-hidden {
-  @media (max-width: #{$bp-1}) {
-    display: none !important;
+@mixin bp($size) {
+  @media (max-width: #{$size}) {
+    @content;
   }
 }
 
-// SHOW ON SMALLEST SCREENS
-.bp1-visible {
-  @media (min-width: #{$bp-1}) {
-      display: none;
-    }
-}
 
 // ===========================================
 // SPACING, SIZING AND POSITIONING
@@ -123,7 +116,7 @@
 
 
 @mixin box-shadow-btn-focus() {
-  -webkit-box-shadow: $primary-color 0px 0px 0px 0.25rem;
-  -moz-box-shadow: $primary-color 0px 0px 0px 0.25rem;
-  box-shadow: $primary-color 0px 0px 0px 0.25rem;
+  -webkit-box-shadow: $black 0px 0px 0px 0.25rem;
+  -moz-box-shadow: $black 0px 0px 0px 0.25rem;
+  box-shadow: $black 0px 0px 0px 0.25rem;
 }

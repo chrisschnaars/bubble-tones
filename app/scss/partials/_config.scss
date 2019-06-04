@@ -10,15 +10,15 @@ $font-weight-normal:     400 !default;
 
 // MEGA - USED FOR BIG ONBOARDING HINT
 $mega-font-size:         2.5rem !default;
-$mega-font-size-sm:      1.75rem !default;
 
 // HEADLINE
 $headline-font-size:      1.5rem !default;
-$headline-line-height:    150% !default;
+$headline-line-height:    2rem !default;
 
 // CONTENT
 $content-font-size:       1.125rem !default;
-$content-line-height:     150% !default;
+$content-line-height:     1.75rem !default;
+$content-max-width:       38rem !default;
 
 // CONTROL BUTTON LABELS
 $ui-label-font-size:      .9375rem !default;
@@ -40,37 +40,38 @@ $spacing-unit: 1rem;
 // GLOBAL PADDING
 $global-container-side-padding: 2.5rem;
 
-// CONTROL BAR
-$control-bar-max-width:      60rem !default; // Max width of contorl bar
-$control-bar-height:         6rem !default; // Max height of control bar
-$control-container-height:   4rem !default;
-$controls-height:            2.25rem !default; // height of control UI (not including label)
-
-// BUTTON SIZES
-$primary-btn-size:           $control-container-height !default;
-$default-btn-size:         3rem !default;
-
 // CONTENT
-$content-max-width:       38rem !default;
+$content-max-width:         38rem !default;
 
+// CONTROL BAR
+$control-bar-height:         6rem !default; // Max height of control bar
+$controls-max-width:        72rem !default;
+
+// CONTROLS
+$controls-max-height:       4rem !default;  // height of control + label
+$controls-height:           2.75rem !default; // height of each control
+$controls-height-sm:        2.5rem !default; // height of each control
+$primary-btn-size:          4rem !default; // HEIGHT OF PRIM BUTTON ONLY
 
 /**************************************
 COLOR PALETTE
 **************************************/
 
 // BACKGROUND COLORS
-$bgColor: #FAF9F7 !default;
+$bgColor-0:     #F8F9FC !default;
+$bgColor-1:     #E3E6F2 !default;
 
 // GRAYSCALE
-$white:  #FFFFFF;
-$gray-1: #EBEDEF;
-$gray-2: #DBDEE1;
-$gray-3: #565E67;
-$black:  #1F2123;
+$white:         #FFFFFF;
+$gray-1:        #F6F7F9;
+$gray-2:        #D8DCE4;
+$gray-3:        #ABB1BD;
+$gray-4:        #5E6778;
+$gray-5:        #3A404A;
+$black:         #191B1F;
 
-// UI COLOR
-$primary-color:         #15A3BC !default;
-$primary-color-dark:    #118397 !default;
+// GLOBAL HOVER OPACITY VALUE
+$hover-opacity: 0.5;
 
 /**************************************
 ANIMATION BEHAVIORS
@@ -89,4 +90,8 @@ $btn-border-radius: 0.25rem;
 RESPONSIVE BREAKPOINTS
 **************************************/
 
+$bp-600: 37.5rem; // 600px
+$bp-736: 46rem;   // 736px
+
 $bp-1: 37.5rem; // 600px
+$bp-2: 54rem; // 864px

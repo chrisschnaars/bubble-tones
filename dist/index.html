@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="css/main.css" type="text/css">
 
     <!-- FAVICON -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon.ico">
-    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
-
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon.ico">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
 
     <!-- P5 LIBRARY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.js"></script>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Barlow:400,700&display=swap " rel="stylesheet">
 
   </head>
 
@@ -28,23 +28,24 @@
     <!-- ONBOARDING -->
     <div class="onboarding-container">
       <div class="onboarding-content-container">
-        <p class="headline white">Welcome to Bubble Tones</p>
-        <p class="mega h1 white">Click or tap to create a bubble.</p>
-        <p class="mega h1 white">You can create up to 6 bubbles.</p>
-
+        <h1 class="txt-onboarding">This is Bubble Tones</h1>
+        <p class="txt-onboarding">Click or tap to create bubbles. The more bubbles the better. Six is the max.</p>
+        <button id="begin-cta" class="cta-button" type="button" name="begin">
+          <span class="cta-label">Begin</span>
+        </button>
       </div>
     </div>
 
     <!-- CANVAS CONTAINER -->
-    <div id="main-container">
-    </div>
+    <div id="main-container"></div>
 
+    <!-- CONTROL PANEL -->
     <div id="control-bar">
       <div id="controls-container">
+
         <!-- PLAY/PAUSE BUTTON -->
-        <div class="control-element primary-btn-element">
-          <button id="play-toggle" class="primary-button round pause-btn" type="button" name="mute">
-            <!-- "Mute" -->
+        <div class="btn-element">
+          <button id="play-toggle" class="primary-button pause-btn" type="button" name="mute">
           </button>
         </div>
 
@@ -61,14 +62,14 @@
           <div class="slider-info-container">
             <label for="tempo" class="control-label">Speed</label>
           </div>
-          <input name="tempo" id="tempo" type="range" min="1" max="25" value="2" step="0.1" aria-valuemin="1" aria-valuemax="25" aria-valuenow="2">
+          <input name="tempo" id="tempo" type="range" min="1" max="12" value="3" step="0.25" aria-valuemin="1" aria-valuemax="12" aria-valuenow="3">
         </div>
 
         <!-- ABOUT MODAL BUTTON -->
-        <div class="control-element secondary-btn-element">
-          <button id="about-modal-open" class="round about-btn" type="button" name="about">
-            <!-- "Mute" -->
+        <div class="btn-element">
+          <button id="about-modal-open" class="icon-button info-btn" type="button" name="about">
           </button>
+          <label for="about-modal-open" class="control-label">Info</label>
         </div>
 
       </div>
@@ -76,9 +77,8 @@
 
     <!-- ABOUT MODAL  -->
     <div id="about-modal" class="modal">
-      <button id="about-modal-close" class="round close-btn" type="button" name="Close">
-        <!-- "Close" -->
-      </button>
+      <button id="about-modal-close" class="icon-button close-btn" type="button" name="Close"></button>
+
       <div class="about-content">
         <!-- TITLE -->
         <div class="content-section">

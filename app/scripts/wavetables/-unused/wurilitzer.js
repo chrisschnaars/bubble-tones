@@ -2,7 +2,7 @@
 // https://github.com/GoogleChromeLabs/web-audio-samples/tree/gh-pages/samples/audio/wave-tables
 
 // Wurlizter
-var wavetableSource = {
+const wurliWavetableSource = {
 'real': [
 0.000000,
 -0.000001,
@@ -4105,7 +4105,7 @@ var wavetableSource = {
 ],
 };
 
-var wavetable = {
-  'real': Float32Array.from(wavetableSource.real),
-  'imag': Float32Array.from(wavetableSource.imag),
+const wurliWave = {
+  'real': Float32Array.from(wurliWavetableSource.real),
+  'imag': Float32Array.from(wurliWavetableSource.imag),
 };

@@ -10,25 +10,19 @@ ONBOARDING
   height: 100vh;
   overflow: auto;
   z-index: 100;
-  // opacity: 0.75;
+  opacity: 1;
   visibility: visible;
   padding: 1rem;
-  padding-bottom: 5rem;
-  // APPEARANCE
-  background-color: $primary-color;
+  // APPEARAHCE
+  background-color: #D96EB2;
   // FLEXBOX
   @include flexbox;
   @include flex-flow(column nowrap);
   @include justify-content(center);
   @include align-items(center);
   // BEHAVIOR
-  pointer-events: none;
   @include transition(opacity $animate-time-fast linear);
   @include transition(visibility $animate-time-fast linear);
-  // RESPONSIVE
-  @include bp1 {
-    padding: 2rem;
-  }
 }
 
 // HIDDEN CLASS
@@ -44,78 +38,64 @@ ONBOARDING
 
 .onboarding-content-container {
   // LAYOUT
-  margin: 0;
   width: 100%;
   max-width: $content-max-width;
-  // FLEXBOX
-  @include flexbox;
-  @include flex-flow(column nowrap);
-  @include justify-content(center);
-  // @include border-radius(160px);
-  text-align: center;
 }
+
 // ONBOARDING CONTENT
 .onboarding-content {
   text-align: center;
 }
 
-
 /**************************************
 MAIN INTERACTION AREA
 **************************************/
 
+// CONTAINER THAT HOLDS TONE BLOCKS AND TONE ORBS
 #main-container {
-  // APPEARANCE
-  // background-color: $bgColor;
+  // SET HEIGHT
+  height: calc(100vh - #{$control-bar-height});
 }
 
+// GLOBAL CANVAS STYLES
 canvas {
   vertical-align: top;
-  // z-index: -  1;
-  cursor: pointer;
-  @include bp1 {
-    position: fixed;
-    overflow: hidden;
-  }
 }
+
 
 /**************************************
 CONTROL BAR AND CONTROLS
 **************************************/
 
-// SHARED STYLES
+// GLOBAL CONTROL BAR CONTAINER
 #control-bar {
   // LAYOUT
   width: 100%;
-  padding: 1rem 2rem;
   height: $control-bar-height;
+  // APPERANCE
+  border-top: 2px solid $gray-4;
   // FLEXBOX
   @include flexbox;
   @include flex-flow(column nowrap);
   @include justify-content(center);
-  // APPERANCE
-  background: $white;
-  border-top: 2px solid $gray-1;
-  // RESPONSIVE
-  @include bp1 {
-    // LAYOUT
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 1rem 1.5rem;
-  }
 }
 
 // CONTAINER FOR ALL CONTROL ELEMENTS
 #controls-container {
   // LAYOUT
   width: 100%;
+  max-width: $controls-max-width;
+  height: 100%;
+  max-height: $controls-max-height;
   margin: 0 auto;
-  max-width: $control-bar-max-width;
+  padding: 0 1.25rem;
   // FLEXBOX
   @include flexbox;
   @include flex-flow(row nowrap);
   @include justify-content(space-between);
+  @include bp($bp-2) {
+    // @include justify-content(center);
+  }
 }
 
 /**************************************
@@ -123,46 +103,23 @@ INDIVIDUAL CONTROL ELEMENT CONTAINERS
 **************************************/
 
 // GLOBAL STYLES FOR ALL CONTAINERS
-.control-element {
+.btn-element, .control-element {
   // LAYOUT
   width: 100%;
-  margin-right: 2.5rem;
-  @include bp1 {
-    width: auto;
-    margin-right: 1.5rem;
+  margin-left: 2rem;
+  @include bp($bp-1) {
+    margin-left: 1rem;
+  }
+  &:first-child {
+    margin-left: 0;
   }
 }
 
-// REDUCED SIZES FOR BUTTONS
-.primary-btn-element {
-  max-width: $primary-btn-size;
-}
-
-.secondary-btn-element {
-  max-width: $default-btn-size;
-  // FLEXBOX
-  @include flexbox;
-  @include flex-flow(column nowrap);
-  @include justify-content(center);
-}
-
-// CONTAINER FOR EACH CONTROL
-.control-element {
-  &:last-child {
-    margin-right: 0;
-  }
-  // @include flex(auto);
-}
-
-/**************************************
-SPECIFIC CONTROL ELEMENTS
-**************************************/
-
-// TEMPO CONTROL
-.tempo-control {
-  @include bp1 {
-    @include flex(auto);
-  }
+// CONTAINER FOR BUTTON ELEMENTS
+.btn-element {
+  // LAYOUT
+  text-align: center;
+  @include flex(0);
 }
 
 /**************************************

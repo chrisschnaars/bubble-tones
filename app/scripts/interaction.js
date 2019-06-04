@@ -3,23 +3,23 @@ INTERACTIVITY
 ************************************************/
 
 // DOM ELEMENTS
-var playToggle;
-var toneControl;
-var tempoControl;
-var effectsControl;
+let playToggle;
+let toneControl;
+let tempoControl;
+let effectsControl;
 
 // SETUP EVENT LISTENERS
 function setupInteraction() {
 
   // CLICK OR TAP TO ADD BUBBLES
-  var mc = document.getElementById("main-canvas");
+  const mc = document.querySelector("canvas");
   mc.addEventListener("click", function(e) {
     createBubble(mouseX, mouseY);
-    e.preventDefault()
+    e.preventDefault();
   }, false);
   mc.addEventListener("touchend", function(e) {
     createBubble(mouseX, mouseY);
-    e.preventDefault()
+    e.preventDefault();
   }, false);
 
   // DEFINE CONTROL PANEL DOM ELEMENTS
@@ -30,45 +30,47 @@ function setupInteraction() {
 
   // PLAY/PAUSE BUTTON
   playToggle.addEventListener("click", function(e) {
+    e.target.blur();
     togglePlaying();
-    e.preventDefault()
+    e.preventDefault();
   },false);
+
   playToggle.addEventListener("touchend", function(e) {
+    e.target.blur();
     togglePlaying();
-    e.preventDefault()
+    e.preventDefault();
   },false);
 
   // TONE SLIDER
   toneControl.addEventListener("input", function(e) {
-    var newTone = Number(this.value);
-    console.log(newTone);
-    rootTone = newTone;
+    // ADJUST ROOT FREQUENCY
+    let r = Number(this.value);
+    rootTone = r;
+    setRoots();
+    // UPDATE ARIA ATTRIBUTE
+    toneControl.setAttribute('aria-valuenow', r);
   }, false);
 
   // TEMPO SLIDER
   tempoControl.addEventListener("input", function(e) {
-    e.preventDefault();
-    var s = Number(this.value);
-
+    // ADJUST TEMPO
+    let s = Number(this.value);
     changeBubbleSpeed(s);
-
     // SET ARIA ATTRIBUTE
     tempoControl.setAttribute('aria-valuenow', dSpeed);
-
   }, false);
 
   // ABOUT BUTTON - SHOW ABOUT MODAL
-  document.querySelector("#about-modal-open").addEventListener("click", function() {
+  document.querySelector("#about-modal-open").addEventListener("click", function(e) {
     document.querySelector("#about-modal").classList.add("visible");
+    e.target.blur();
   }, false);
 
-  // CLOSE ABOUT TOGGLE
-  // ABOUT BUTTON - SHOW ABOUT MODAL
-  document.querySelector("#about-modal-close").addEventListener("click", function() {
+  // CLOSE ABOUT MODAL BUTTON
+  document.querySelector("#about-modal-close").addEventListener("click", function(e) {
     document.querySelector("#about-modal").classList.remove("visible");
+    e.target.blur();
   }, false);
-
-
 }
 
 // KEYBOARD EVENTS
@@ -101,7 +103,7 @@ ACTIVITY UPDATES
 // TOGGLE PLAYING
 function togglePlaying() {
   // DOM ELEMENTS
-  var playToggle = document.querySelector('#play-toggle');
+  const playToggle = document.querySelector('#play-toggle');
 
   // TOGGLE PLAYING
   if (looping) {
@@ -117,16 +119,4 @@ function togglePlaying() {
     playToggle.classList.add("pause-btn");
     looping = true;
   }
-}
-
-// UPDATE TOGGLE BUTTON GROUP FOR ACTIVE SELECTION
-function updateToggleStatus(e) {
-  // REMOVE SELECTED CLASS FROM ALL TOGGLES
-  var toggles = document.querySelectorAll('.toggle');
-  for (var i=0; i<toggles.length; i++) {
-    toggles[i].classList.remove('selected');
-  }
-
-  // ADD SELECTED CLASS TO SELECTED
-  e.target.classList.add( "selected" );
 }

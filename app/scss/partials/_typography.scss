@@ -21,18 +21,27 @@ p {
 }
 
 // CONTROL LABELS
-label, p.control-label {
+label, .control-label {
   font-weight: 700;
   font-size: $ui-label-font-size;
   line-height: $ui-label-line-height;
   margin-bottom: 0.25rem;
-  text-transform: uppercase;
   letter-spacing: 0.025rem;
   display: block;
+  &:last-child {
+    margin-bottom: 0;
+    vertical-align: bottom;
+  }
   // RESPONSIVE
-  @include bp1 {
+  @include bp($bp-2) {
     font-size: $ui-label-font-size-sm;
   }
+}
+
+// CTA LABEL STYLE
+.cta-label {
+  @extend .control-label;
+  font-size: 1.25rem;
 }
 
 // CONTENT STYLES
@@ -43,30 +52,13 @@ p.content {
   }
 }
 
-// PARAGRAPH HEADLINE
-p.headline {
-  @extend h2;
-  margin-bottom: 1rem;
-}
-
-// GLOBAL STYLE CHANGLES
-.h1 {
-  @extend h1;
-  margin-bottom: 0;
-}
-
-// ONBOARDING HINT
-.mega {
-  font-weight: $font-weight-heavy;
-  font-size: $mega-font-size;
-  line-height: 120%;
-  // RESPONSIVE
-  @include bp1 {
-    font-size: $mega-font-size-sm;
-  }
-}
-
-// GLOBAL WHITE FONT COLOR
-.white {
+// GLOBAL ONBOARDING TEXT STYLE
+.txt-onboarding {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
   color: $white;
+  @include bp($bp-2) {
+    font-size: 1.5rem;
+  }
 }

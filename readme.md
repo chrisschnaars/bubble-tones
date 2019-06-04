@@ -5,8 +5,8 @@ Bubble Tones is a generative sound tool that produces a unique musical creation 
 In Bubble Tones, sounds are made when a Bubble hits a wall or the larger bubbles (aka Roadblocks). To add a Bubble, just click or tap anywhere on the screen. You can add up to six Bubbles at a time.
 
 ## Keyboard Shortcuts
-Q: Add a Bubble
-P: Remove a Bubble
+Q: Add a Bubble  
+P: Remove a Bubble  
 Spacebar: Play/Pause Bubble Tones
 
 ## Audio Interactions

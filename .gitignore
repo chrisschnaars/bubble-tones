@@ -1,6 +1,6 @@
 # admin files
 /-admin
-/scripts/wavetables/-unused
+app/scripts/wavetables/-unused
 
 # BUILD FILES
 /tmp

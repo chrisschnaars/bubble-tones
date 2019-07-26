@@ -10,7 +10,7 @@ const bgColor = '#F8F9FC';
 // SET CANVAS SIZE
 function setCanvasSize() {
   // GET CONTROL BAR HEIGHT
-  const controlBar = document.querySelector('#control-bar');
+  const controlBar = document.querySelector('.control-bar');
   let cbHeight = controlBar.clientHeight + 2; // height plus border
 
   // SET CANVAS SIZE

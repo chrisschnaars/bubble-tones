@@ -1,19 +1,9 @@
-
-// RANDOMLY ASSIGN BACKGROUND COLOR TO ONBOARDING CONTAINER
-function setOnboardColor() {
-  // ONBOARDING CONTAINER
-  const ob = document.querySelector('.onboarding-container');
-
-  let c = Math.round(getRandomNumber(0, bubbleColors.length - 1));
-  ob.style.backgroundColor = bubbleColors[c][1];
-}
-
 // END ONBOARDING
 function endOnboarding() {
   // ONBOARDING CONTAINER
-  let ob = document.querySelector('.onboarding-container');
+  let ob = document.querySelector('.onboarding');
   // ADD HIDDEN CLASS
-  ob.classList.add('onboarding-container-hidden');
+  ob.classList.add('onboarding--hidden');
   // TOGGLE ONBOARDING FLAG
   onboarding = false;
 }

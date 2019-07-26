@@ -1,64 +1,67 @@
-/*
- ALL INTERACTIVE CONTROLS
-*/
+/*------------------------------------*\
+  TYPE
+\*------------------------------------*/
 
-h1 {
-  font-size: $headline-font-size;
-  line-height: $headline-line-height;
-  font-weight: 700;
-  margin-bottom: 2rem;
+h1, h2, h3 {
+  font-size: $font-size-32;
+  margin-bottom: 1rem;
 }
 
-h2 {
-  font-weight: 700;
-  line-height: $headline-line-height;
+h3 {
+  font-weight: $font-weight-normal;
 }
 
-// CONTENT
+h4 {
+  font-size: $content-font-size;
+  line-height: 1.45;
+  @include bp1 {
+    font-size: $content-font-size-sm;
+    line-height: 1.45;
+  }
+}
+
 p {
   font-size: $content-font-size;
-  line-height: $content-line-height;
+  line-height: 1.45;
+  margin-bottom: calc(1.45 * #{$content-font-size});
+
+  @include bp1 {
+    font-size: $content-font-size-sm;
+    line-height: 1.45;
+    margin-bottom: calc(1.45 * #{$content-font-size-sm});
+  }
+
+  &:last-child, &:only-child {
+    margin-bottom: 0;
+  }
 }
 
 // CONTROL LABELS
-label, .control-label {
-  font-weight: 700;
-  font-size: $ui-label-font-size;
-  line-height: $ui-label-line-height;
-  margin-bottom: 0.25rem;
-  letter-spacing: 0.025rem;
-  display: block;
-  &:last-child {
-    margin-bottom: 0;
-    vertical-align: bottom;
-  }
-  // RESPONSIVE
-  @include bp($bp-2) {
-    font-size: $ui-label-font-size-sm;
-  }
+.control-bar__control-label, .control-bar__control-readout {
+  font-size: $control-label-font-size;
+  font-weight: $font-weight-heavy;
+  letter-spacing: 0.25px;
+  line-height: $control-label-line-height;
+  vertical-align: top;
 }
 
-// CTA LABEL STYLE
-.cta-label {
-  @extend .control-label;
-  font-size: 1.25rem;
+// BUTTON TEXT
+.btn-label {
+  color: $btn-text-color;
+  font-family: inherit;
+  font-size: $btn-font-size;
+  font-weight: $font-weight-heavy;
+  letter-spacing: 0.25px;
+  line-height: $btn-line-height;
 }
 
-// CONTENT STYLES
-p.content {
-  margin-bottom: 1rem;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-// GLOBAL ONBOARDING TEXT STYLE
-.txt-onboarding {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  line-height: 1.25;
+.btn-label--cta {
   color: $white;
-  @include bp($bp-2) {
-    font-size: 1.5rem;
-  }
+  font-size: $font-size-18;
+  letter-spacing: inherit;
+  line-height: 1;
+  text-transform: uppercase;
 }
+
+// GLOBAL FONT COLOR MODIFIER
+.col--white { color: $white; }

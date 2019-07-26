@@ -1,55 +1,43 @@
-/**************************************
-ONBOARDING
-**************************************/
+/*------------------------------------*\
+  ONBOARDING SCREEN
+\*------------------------------------*/
 
-// ONBOARDING MODAL
-.onboarding-container {
-  // LAYOUT
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  overflow: auto;
-  z-index: 100;
-  opacity: 1;
-  visibility: visible;
-  padding: 1rem;
-  // APPEARAHCE
-  background-color: #D96EB2;
-  // FLEXBOX
+.onboarding {
+  @include align-items(center);
+  background-color: $col-pink;
   @include flexbox;
   @include flex-flow(column nowrap);
+  height: 100vh;
   @include justify-content(center);
-  @include align-items(center);
-  // BEHAVIOR
+  opacity: 1;
+  overflow: auto;
+  padding: 1rem;
+  position: absolute;
   @include transition(opacity $animate-time-fast linear);
   @include transition(visibility $animate-time-fast linear);
+  visibility: visible;
+  width: 100%;
+  z-index: 100;
 }
 
-// HIDDEN CLASS
-.onboarding-container-hidden {
-  // APPEARANCE
+// VISIBILITY MODIFIER
+.onboarding--hidden {
   opacity: 0;
-  visibility: hidden;
-  // BEHAVIOR
   pointer-events: none;
   @include transition(all 0.10s linear);
-  // @include transition(visibility $animate-time-fast linear);
+  visibility: hidden;
 }
 
-.onboarding-content-container {
-  // LAYOUT
-  width: 100%;
+.onboarding__content-container {
   max-width: $content-max-width;
+  width: 100%;
 }
 
-// ONBOARDING CONTENT
-.onboarding-content {
-  text-align: center;
-}
 
-/**************************************
-MAIN INTERACTION AREA
-**************************************/
+
+/*------------------------------------*\
+  CANVAS CONTAINER
+\*------------------------------------*/
 
 // CONTAINER THAT HOLDS TONE BLOCKS AND TONE ORBS
 #main-container {
@@ -63,123 +51,141 @@ canvas {
 }
 
 
-/**************************************
-CONTROL BAR AND CONTROLS
-**************************************/
+/*------------------------------------*\
+  CONTROL BAR
+\*------------------------------------*/
 
 // GLOBAL CONTROL BAR CONTAINER
-#control-bar {
-  // LAYOUT
-  width: 100%;
-  height: $control-bar-height;
-  // APPERANCE
+.control-bar {
   border-top: 2px solid $gray-4;
-  // FLEXBOX
+  @include flexbox;
+  @include flex-flow(column nowrap);
+  height: $control-bar-height;
+  @include justify-content(center);
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.control-bar__inner-container {
+  @include flexbox;
+  @include flex-flow(row nowrap);
+  @include justify-content(space-between);
+  margin: 0 auto;
+  max-width: $controls-max-width;
+  max-height: $controls-max-height;
+  width: 100%;
+}
+
+
+// CONTAINER FOR EACH CONTROL
+.control-bar__control-container {
+  // LAYOUT
+  flex: 1;
+  margin-left: 2rem;
+  &:first-child {
+    margin-left: 0;
+  }
+  width: 100%;
+
+  @include bp1 {
+    width: auto;
+    margin-left: 1rem;
+  }
+}
+
+// MODIFY BUTTON CONTAINERS TO NOT STRETCH
+.control-bar__control-container--btn {
+  @include flex(0);
+  text-align: center;
+}
+
+.control-bar__control-label-container {
+  margin-bottom: 0.25rem;
+}
+
+.control-bar__control-label-container--with-readout {
+  @include flexbox;
+  @include flex-flow(row nowrap);
+  @include justify-content(space-between);
+}
+
+.control-bar__control {
+  height: $controls-height;
+}
+
+// MODIFIER FOR HEIGHT OF PRIMARY CONTROL
+.control-bar__control--primary {
+  height: 100%;
+}
+
+// MODIFIER FOR GROUP OF TOGGLE BUTTONS
+.control-bar__control--toggle-group {
+  @include flexbox;
+  @include flex-flow(row nowrap);
+  @include justify-content(flex-start);
+}
+
+// MODIFIER FOR VERTICALLY CENTERING CONTROL
+.control-bar__control--ctrY {
   @include flexbox;
   @include flex-flow(column nowrap);
   @include justify-content(center);
 }
 
-// CONTAINER FOR ALL CONTROL ELEMENTS
-#controls-container {
-  // LAYOUT
-  width: 100%;
-  max-width: $controls-max-width;
-  height: 100%;
-  max-height: $controls-max-height;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-  // FLEXBOX
-  @include flexbox;
-  @include flex-flow(row nowrap);
-  @include justify-content(space-between);
-  @include bp($bp-2) {
-    // @include justify-content(center);
-  }
-}
 
-/**************************************
-INDIVIDUAL CONTROL ELEMENT CONTAINERS
-**************************************/
-
-// GLOBAL STYLES FOR ALL CONTAINERS
-.btn-element, .control-element {
-  // LAYOUT
-  width: 100%;
-  margin-left: 2rem;
-  @include bp($bp-1) {
-    margin-left: 1rem;
-  }
-  &:first-child {
-    margin-left: 0;
-  }
-}
-
-// CONTAINER FOR BUTTON ELEMENTS
-.btn-element {
-  // LAYOUT
-  text-align: center;
-  @include flex(0);
-}
-
-/**************************************
-ABOUT MODAL
-**************************************/
+/*------------------------------------*\
+  #ABOUT CONTENT
+\*------------------------------------*/
 
 // FULL SCREEN MODAL STYLE
-.modal {
-  // LAYOUT
+.about {
+  background-color: $bgColor-0;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
   top: 0;
-  left: 0;
-  height: 100%;
+  @include transition(opacity $animate-time-fast linear);
+  @include transition(visibility $animate-time-fast linear);
+  visibility: hidden;
   width: 100%;
-  overflow: auto;
   z-index: 100;
-  opacity: 0;
-  padding: 1.25rem;
-  // APPEARANCE
-  background-color: $white;
-  display: none;
-  // BEHAVIOR
-  pointer-events: none;
-  // RESPONSIVE
-  @include bp1 {
-    position: fixed;
-  }
 }
 
-// OPEN MODAL
-.modal.visible {
-  // APPEARANCE
-  opacity: 0.98;
-  display: block;
-  // BEHAVIOR
+// MOIFIER TO MAKE MODAL VISIBLE
+.about--visible {
+  opacity: 0.99;
   pointer-events: auto;
+  @include transition(visibility $animate-time-fast linear);
+  @include transition(opacity $animate-time-fast ease-in);
+  visibility: visible;
 }
 
-// ABOUT CONTENT CONTAINER
-.about-content {
-  // LAYOUT
-  margin: 0 auto;
-  padding-top: 5rem;
-  width: 100%;
-  max-width: $content-max-width;
-}
+.about__close-btn-container {
+  position: fixed;
+  right: 3rem;
+  top: 1.25rem;
 
-/**************************************
-GENERAL POSITIONING
-**************************************/
-
-// CENTER TEXT ON SMALLEST SCREENS
-.t-ctr-bp1 {
   @include bp1 {
-    text-align: center;
+    top: 1rem;
+    right: 1rem;
   }
 }
 
-// CONTENT SECTIONS
-.content-section {
+.about__content-container {
+  margin: 0 auto;
+  max-width: $content-max-width;
+  padding: 5rem 1.5rem;
+  width: 100%;
+}
+
+.about__content-section {
   // LAYOUT
   margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

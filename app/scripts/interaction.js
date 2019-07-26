@@ -23,10 +23,9 @@ function setupInteraction() {
   }, false);
 
   // DEFINE CONTROL PANEL DOM ELEMENTS
-  playToggle = document.querySelector('#play-toggle');
-  toneControl = document.querySelector("#tone");
-  tempoControl = document.querySelector("#tempo");
-  effectsControl = document.querySelector("#effects");
+  playToggle = document.querySelector('.js-play-toggle');
+  toneControl = document.querySelector('.js-tone-control');
+  tempoControl = document.querySelector('.js-tempo-control');
 
   // PLAY/PAUSE BUTTON
   playToggle.addEventListener("click", function(e) {
@@ -61,15 +60,13 @@ function setupInteraction() {
   }, false);
 
   // ABOUT BUTTON - SHOW ABOUT MODAL
-  document.querySelector("#about-modal-open").addEventListener("click", function(e) {
-    document.querySelector("#about-modal").classList.add("visible");
-    e.target.blur();
+  document.querySelector(".js-about-open-btn").addEventListener("click", function() {
+    document.querySelector(".about").classList.add("about--visible");
   }, false);
 
-  // CLOSE ABOUT MODAL BUTTON
-  document.querySelector("#about-modal-close").addEventListener("click", function(e) {
-    document.querySelector("#about-modal").classList.remove("visible");
-    e.target.blur();
+  // CLOSE ABOUT TOGGLEL
+  document.querySelector(".js-about-close-btn").addEventListener("click", function() {
+    document.querySelector(".about").classList.remove("about--visible");
   }, false);
 }
 
@@ -103,20 +100,20 @@ ACTIVITY UPDATES
 // TOGGLE PLAYING
 function togglePlaying() {
   // DOM ELEMENTS
-  const playToggle = document.querySelector('#play-toggle');
+  const playToggle = document.querySelector('.js-play-toggle');
 
   // TOGGLE PLAYING
   if (looping) {
     // STOP PLAYING
     noLoop();
     // TOGGLE BUTTON CLASS
-    playToggle.classList.remove("pause-btn");
-    playToggle.classList.add("play-btn");
+    playToggle.classList.remove("btn--pause");
+    playToggle.classList.add("btn--play");
     looping = false;
   } else {
     loop();
-    playToggle.classList.remove("play-btn");
-    playToggle.classList.add("pause-btn");
+    playToggle.classList.remove("btn--play");
+    playToggle.classList.add("btn--pause");
     looping = true;
   }
 }

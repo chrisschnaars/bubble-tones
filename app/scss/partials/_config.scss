@@ -2,64 +2,61 @@
 TYPOGRAPHY & SIZING
 **************************************/
 
-$base-font-size:         16px !default;
+$base-font-size:         16px;
 
 // FONT WEIDGHTS
-$font-weight-heavy:      700 !default;
-$font-weight-normal:     400 !default;
+$font-weight-heavy:      700;
+$font-weight-normal:     400;
 
-// MEGA - USED FOR BIG ONBOARDING HINT
-$mega-font-size:         2.5rem !default;
+// FONT SIZES
+$font-size-48:           3rem;
+$font-size-40:           2.5rem;
+$font-size-36:           2.25rem;
+$font-size-32:           2rem;
+$font-size-24:           1.5rem;
+$font-size-18:           1.1255rem;
+$font-size-16:           1rem;
+$font-size-15:           0.9375rem;
+$font-size-14:           0.875rem;
 
-// HEADLINE
-$headline-font-size:      1.5rem !default;
-$headline-line-height:    2rem !default;
+// CONTENT PRESETS
+$content-font-size:           $font-size-24;
+$content-font-size-sm:        $font-size-18;
 
-// CONTENT
-$content-font-size:       1.125rem !default;
-$content-line-height:     1.75rem !default;
-$content-max-width:       38rem !default;
+// LABEL PRESETS
+$control-label-font-size:     $font-size-15;
+$control-label-font-size-sm:  $font-size-14;
+$control-label-line-height:   1rem;
 
-// CONTROL BUTTON LABELS
-$ui-label-font-size:      .9375rem !default;
-$ui-label-font-size-sm:   .8125rem !default;
-$ui-label-line-height:    1.25rem !default;
-
-// CONTROL BUTTON TYPE
-$ui-type-size:            0.875rem !default;
-$ui-line-height:          1rem !default;
+// BUTTON/INPUT PRESETS
+$btn-font-size:               $font-size-14;
+$btn-line-height:             0;
 
 
-/**************************************
-GRIDS AND SPACING
-**************************************/
-
-// GLOBAL SPACING UNIT
-$spacing-unit: 1rem;
-
-// GLOBAL PADDING
-$global-container-side-padding: 2.5rem;
+/*------------------------------------*\
+  ELEMENT SIZING
+\*------------------------------------*/
 
 // CONTENT
-$content-max-width:         38rem !default;
+$content-max-width:       41rem;
 
 // CONTROL BAR
-$control-bar-height:         6rem !default; // Max height of control bar
-$controls-max-width:        72rem !default;
+$control-bar-height:      6rem; // Max height of control bar
 
-// CONTROLS
-$controls-max-height:       4rem !default;  // height of control + label
-$controls-height:           2.75rem !default; // height of each control
-$controls-height-sm:        2.5rem !default; // height of each control
-$primary-btn-size:          4rem !default; // HEIGHT OF PRIM BUTTON ONLY
+// CONTROL PANEL
+$controls-max-width:      72rem;
+$controls-max-height:     4rem;  // height of control + label
+$controls-height:         2.75rem; // height of each control
+$primary-btn-size:        4rem; // HEIGHT OF PRIM BUTTON ONLY
+
 
 /**************************************
 COLOR PALETTE
 **************************************/
 
 // BACKGROUND COLORS
-$bgColor-0:     #F8F9FC !default;
-$bgColor-1:     #E3E6F2 !default;
+$bgColor-0:     #F8F9FC;
+$bgColor-1:     #E3E6F2;
 
 // GRAYSCALE
 $white:         #FFFFFF;
@@ -67,18 +64,29 @@ $gray-1:        #F6F7F9;
 $gray-2:        #D8DCE4;
 $gray-3:        #ABB1BD;
 $gray-4:        #5E6778;
-$gray-5:        #3A404A;
+$gray-5:        #24272E;
 $black:         #191B1F;
 
+// BUBBLE COLORS
+$col-pink:      #D96EB2;
+$col-yel-fill:  #FFCF55;
+
+// CONTROL PRESETS
+$btn-fill-color:          $white;
+$btn-fill-color--hover:   $gray-1;
+$btn-fill-color--active:  $gray-2;
+$btn-border-color:        $black;
+$btn-text-color:          $black;
+
 // GLOBAL HOVER OPACITY VALUE
-$hover-opacity: 0.5;
+$hover-opacity: 0.85;
 
 /**************************************
 ANIMATION BEHAVIORS
 **************************************/
 
-$animate-time-fast:     0.15s !default;
-$animate-time-slow:     0.35s !default;
+$animate-time-fast:     0.15s;
+$animate-time-slow:     0.35s;
 
 /**************************************
 STYLING
@@ -89,9 +97,6 @@ $btn-border-radius: 0.25rem;
 /**************************************
 RESPONSIVE BREAKPOINTS
 **************************************/
-
-$bp-600: 37.5rem; // 600px
-$bp-736: 46rem;   // 736px
 
 $bp-1: 37.5rem; // 600px
 $bp-2: 54rem; // 864px

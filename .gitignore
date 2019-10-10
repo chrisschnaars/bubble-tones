@@ -5,10 +5,6 @@ app/scripts/wavetables/-unused
 # BUILD FILES
 /tmp
 */assets
-*.gitignore
 
 #DEPENDENCIES
 /node_modules
-package-lock.json
-package.json
-gulpfile.js

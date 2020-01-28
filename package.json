@@ -32,7 +32,8 @@
     "gulp-terser": "^1.2.0",
     "gulp-uglify": "^3.0.2",
     "gulp-w3c-html-validator": "^1.4.3",
-    "jshint": "^2.10.2"
+    "jshint": "^2.10.2",
+    "node-sass": "^4.13.1"
   },
   "dependencies": {
     "core-util-is": "^1.0.2",

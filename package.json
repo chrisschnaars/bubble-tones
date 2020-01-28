@@ -1,19 +1,24 @@
 {
   "name": "bubble-tones",
-  "version": "1.0.0",
-  "description": "Bubble Tones sound generation tool",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Bubble Tones is a playful sound generation tool for kids and adults",
+  "main": "dist/js/main.js",
+  "author": {
+		"name": "Chris Schnaars",
+		"url": "https://schnaars.xyz"
+	},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "autoprefixer": "^9.4.9",
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.7",
     "cssnano": "^4.1.10",
+    "del": "^4.1.1",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
@@ -31,6 +36,5 @@
   },
   "dependencies": {
     "core-util-is": "^1.0.2",
-    "del": "^4.1.1"
   }
 }

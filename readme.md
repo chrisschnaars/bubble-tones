@@ -1,15 +1,19 @@
 # Bubble Tones
-Bubble Tones is a generative sound tool that produces a unique musical creation with each use.
+
+Bubble Tones is a generative sound tool that produces a pleasing audio ambiance.
 
 ## How To Play
+
 In Bubble Tones, sounds are made when a Bubble hits a wall or the larger bubbles (aka Roadblocks). To add a Bubble, just click or tap anywhere on the screen. You can add up to six Bubbles at a time.
 
 ## Keyboard Shortcuts
+
 Q: Add a Bubble  
 P: Remove a Bubble  
 Spacebar: Play/Pause Bubble Tones
 
 ## Audio Interactions
+
 The tones that play when Bubbles collide with the wall are selected from the root tone’s major and minor scales. The selection of the scale and tone has some randomness built in, which is intended to create even more unexpected variety in each composition.
 
 Here is a breakdown of how that works:
@@ -26,7 +30,9 @@ The other way tones are generated is when a Bubble collides with a Roadblock (th
 The tone selection for each wall and Roadblock happens with each collision, meaning that the sound will be in a constant state of flux. Hopefully this makes it enjoyable.
 
 ## Thanks
+
 This project couldn't have been done without:
-* [p5js](https://p5js.org/)
-* [Daniel Shiffman](http://shiffman.net/)
-* [This bouncing ball example by Keith Peters](https://processing.org/examples/bouncybubbles.html)
+
+- [p5js](https://p5js.org/)
+- [Daniel Shiffman](http://shiffman.net/)
+- [This bouncing ball example by Keith Peters](https://processing.org/examples/bouncybubbles.html)

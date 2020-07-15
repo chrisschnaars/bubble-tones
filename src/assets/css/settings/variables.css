@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500');
+
+:root {
+	/* Font family */
+	--font-family_body: 'Rubik', helvetica, sans-serif;
+	--font-family_heading: 'Rubik', helvetica, sans-serif;
+
+	/* Font Sizes */
+	--font-size_14: 0.875rem;
+	--font-size_16: 1rem;
+	--font-size_18: 1.125rem;
+	--font-size_20: 1.25rem;
+	--font-size_24: 1.5rem;
+	--font-size_28: 1.75rem;
+	--font-size_36: 2.25rem;
+	--body-font-size: 1.125rem;
+	--body-line-height: 1.75rem;
+
+	/* Font Weights */
+	--font-weight_heading: 500;
+	--font-weight_sub-heading: 500;
+	--font-weight_body: 400;
+
+	/* Colors */
+	--color_tan-1: #f7f5f3;
+	--color_tan-2: #eeece7;
+	--color_tan-3: #e4e0d8;
+	--color_tan-4: #d7d1c6;
+	--color_white: #fff;
+	--color_off-white: #f7f7f8;
+	--color_light-gray: #e5e8eb;
+	--color_medium-gray: #77838d;
+	--color_dark-gray: #313c45;
+	--color_black: #0e1216;
+
+	/* UI Colors */
+	--color_background: var(--color_tan-1);
+	--color_primary: var(--color_dark-gray);
+	--color_text: var(--color_black);
+
+	/* Animation */
+	--transition-duration-base: 150ms;
+	--transition-duration-long: 350ms;
+	--transition-timing-base: ease-in-out;
+
+	/* Styles */
+	--border-radius_btn: 0.25rem;
+	--box-shadow_btn: 0 2px 8px 0 hsla(208, 22%, 7%, 0.2);
+	--box-shadow_btn-hover: 0 2px 10px 2px rgba(17, 17, 18, 0.2);
+
+	/* Breakpoints */
+	--breakpoint_small: 37.5rem;
+	--breakpoint_medium: 54rem;
+	--breakpoint_large: 68rem;
+}

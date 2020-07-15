@@ -1,0 +1,6 @@
+@import './assets/css/index.css';
+
+#root {
+	background-color: var(--color_tan-1);
+	height: 100%;
+}

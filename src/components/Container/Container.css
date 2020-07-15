@@ -1,0 +1,8 @@
+.container {
+	padding: 0.5rem 1rem;
+	width: 100%;
+
+	@media (min-width: var(--breakpoint_small)) {
+		padding: 1rem;
+	}
+}

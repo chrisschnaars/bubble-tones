@@ -13,4 +13,9 @@
 
 .controls-group {
 	display: flex;
+	justify-content: center;
+}
+
+.controls-group-flex1 {
+	flex: 1;
 }

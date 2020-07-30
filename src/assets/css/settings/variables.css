@@ -9,12 +9,12 @@
 	--font-size_14: 0.875rem;
 	--font-size_16: 1rem;
 	--font-size_18: 1.125rem;
-	--font-size_20: 1.25rem;
+	--font-size_21: 1.3125rem;
 	--font-size_24: 1.5rem;
 	--font-size_28: 1.75rem;
 	--font-size_36: 2.25rem;
-	--body-font-size: 1.125rem;
-	--body-line-height: 1.75rem;
+	--body-font-size: var(--font-size_21);
+	--body-line-height: 2rem;
 
 	/* Font Weights */
 	--font-weight_heading: 500;

@@ -1,0 +1,30 @@
+.overlay {
+	background-color: var(--color_background);
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	left: 0;
+	overflow: auto;
+	padding: 2rem;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	transition-duration: var(--transition-duration-base);
+	transition-property: opacity, visibility;
+	transition-timing-function: var(--transition-timing-base);
+	visibility: hidden;
+	width: 100%;
+	z-index: 100;
+}
+
+.visible {
+	opacity: 0.95;
+	pointer-events: auto;
+	visibility: visible;
+}
+
+.close-btn {
+	position: fixed;
+	right: 1.5rem;
+	top: 1.5rem;
+}

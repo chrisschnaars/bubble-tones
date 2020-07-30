@@ -6,7 +6,7 @@ export default function Slider(props) {
 	const { label, handleChange, max, min, step, value } = props;
 	return (
 		<div className="slider-container">
-			<p>{label}</p>
+			<p className="label">{label}</p>
 			<input
 				className="slider"
 				type="range"

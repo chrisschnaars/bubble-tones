@@ -62,6 +62,7 @@ button > * {
 
 .round {
 	border-radius: 100%;
+	width: var(--_button-size-default);
 }
 
 .round-large {

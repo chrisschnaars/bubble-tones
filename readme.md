@@ -33,6 +33,6 @@ The tone selection for each wall and Roadblock happens with each collision, mean
 
 This project couldn't have been done without:
 
-- [p5js](https://p5js.org/)
-- [Daniel Shiffman](http://shiffman.net/)
-- [This bouncing ball example by Keith Peters](https://processing.org/examples/bouncybubbles.html)
+-   [p5js](https://p5js.org/): A great library for creative coding with the HTML `canvas` element.
+-   [Daniel Shiffman](http://shiffman.net/): A great teacher and human being.
+-   [This bouncing ball example by Keith Peters](https://processing.org/examples/bouncybubbles.html): Got me out a mathematics jam.

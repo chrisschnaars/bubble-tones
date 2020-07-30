@@ -12,38 +12,35 @@ export default function ControlBar(props) {
 	const {
 		isPlaying,
 		rootTone,
-		tempo,
+		toggleInfoPanel,
 		togglePlaying,
 		updateRootTone,
-		updateTempo,
 	} = props;
 
 	const handleRootToneChange = (value) => {
 		updateRootTone(value);
 	};
 
-	const handleTempoChange = (value) => {
-		updateTempo(value);
-	};
-
 	return (
 		<div className="control-bar">
 			<Container>
 				<div className="inner-container">
-					<Button
-						handleClick={togglePlaying}
-						shape="round"
-						size="large"
-						variant="primary"
-					>
-						{isPlaying ? (
-							<PauseIcon className="icon icon-only icon-large" />
-						) : (
-							<PlayIcon className="icon icon-only icon-large" />
-						)}
-					</Button>
-
 					<div className="controls-group">
+						<Button
+							handleClick={togglePlaying}
+							shape="round"
+							size="large"
+							variant="primary"
+						>
+							{isPlaying ? (
+								<PauseIcon className="icon icon-only icon-large" />
+							) : (
+								<PlayIcon className="icon icon-only icon-large" />
+							)}
+						</Button>
+					</div>
+
+					<div className="controls-group controls-group-flex1">
 						<Slider
 							handleChange={(updatedRootTone) =>
 								handleRootToneChange(updatedRootTone)
@@ -54,21 +51,10 @@ export default function ControlBar(props) {
 							value={rootTone}
 							step={1}
 						/>
-
-						<Slider
-							handleChange={(updatedTempo) =>
-								handleTempoChange(updatedTempo)
-							}
-							label="Tempo"
-							min={1}
-							max={12}
-							value={tempo}
-							step={1}
-						/>
 					</div>
 
 					<div className="controls-group">
-						<Button icon="path-to-icon" onClick="click handler">
+						<Button handleClick={toggleInfoPanel}>
 							<InfoIcon className="icon" />
 							Info
 						</Button>
@@ -82,17 +68,15 @@ export default function ControlBar(props) {
 ControlBar.propTypes = {
 	isPlaying: PropTypes.bool,
 	rootTone: PropTypes.number,
-	tempo: PropTypes.number,
+	toggleInfoPanel: PropTypes.func,
 	togglePlaying: PropTypes.func,
 	updateRootTone: PropTypes.func,
-	updateTempo: PropTypes.func,
 };
 
 ControlBar.defaultProps = {
 	isPlaying: false,
 	rootTone: 220,
-	tempo: 3,
+	toggleInfoPanel: null,
 	togglePlaying: null,
 	updateRootTone: null,
-	updateTempo: null,
 };

@@ -1,0 +1,8 @@
+.onboarding-panel {
+	display: none;
+	position: absolute;
+}
+
+.visible {
+	display: block;
+}

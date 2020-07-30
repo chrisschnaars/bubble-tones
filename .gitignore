@@ -1,9 +1,4 @@
-# admin files
-/-admin
-app/scripts/wavetables/-unused
-
-# BUILD FILES
-/tmp
-
 #DEPENDENCIES
 /node_modules
+
+notes.txt

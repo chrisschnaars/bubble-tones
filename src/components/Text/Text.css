@@ -1,0 +1,22 @@
+p {
+	font-size: var(--body-font-size);
+	line-height: var(--body-line-height);
+	margin: 0 0 2rem;
+}
+
+.center {
+	text-align: center;
+}
+
+a {
+	color: var(--color_text);
+	text-decoration: underline var(--color_primary);
+	transition: all var(--transition-duration-base)
+		var(--transition-timing-base);
+}
+
+a:focus,
+a:hover {
+	opacity: 0.85;
+	text-decoration: none;
+}

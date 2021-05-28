@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Overlay from '../Overlay';
+import Overlay from '../Overlay/Overlay';
 import ContentBlock from '../ContentBlock';
 import Header from '../Header';
 import Text from '../Text';
 
-export default function InfoPanel(props) {
+const InfoPanel = (props) => {
 	const { isVisible, toggleVisibility } = props;
 
 	return (
@@ -61,7 +61,7 @@ export default function InfoPanel(props) {
 			</ContentBlock>
 		</Overlay>
 	);
-}
+};
 
 InfoPanel.propTypes = {
 	isVisible: PropTypes.bool,
@@ -72,3 +72,5 @@ InfoPanel.defaultProps = {
 	isVisible: false,
 	toggleVisibility: null,
 };
+
+export default InfoPanel;

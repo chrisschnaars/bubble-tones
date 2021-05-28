@@ -5,15 +5,11 @@ import './Overlay.css';
 import Button from '../Button';
 import { ReactComponent as CloseIcon } from '../../assets/icons/Close.svg';
 
-export default function Overlay(props) {
+const Overlay = (props) => {
 	const { children, toggleVisibility, isVisible } = props;
 
-	const overlayClasses = classNames('overlay', {
-		visible: isVisible,
-	});
-
 	return (
-		<div className={overlayClasses}>
+		<div className={classNames('overlay', { visible: isVisible })}>
 			{children}
 			<div className="close-btn">
 				<Button handleClick={toggleVisibility} shape="round">
@@ -22,7 +18,7 @@ export default function Overlay(props) {
 			</div>
 		</div>
 	);
-}
+};
 
 Overlay.propTypes = {
 	children: PropTypes.node,
@@ -35,3 +31,5 @@ Overlay.defaultProps = {
 	toggleVisibility: null,
 	isVisible: false,
 };
+
+export default Overlay;

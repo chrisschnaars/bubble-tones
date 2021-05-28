@@ -5,7 +5,9 @@ import './Text.css';
 export default function Text(props) {
 	const { align, children } = props;
 
-	return <p className={align}>{children}</p>;
+	return (
+		<p className={align === 'center' ? 'center' : undefined}>{children}</p>
+	);
 }
 
 Text.propTypes = {
@@ -14,6 +16,5 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
-	align: 'left',
 	children: null,
 };

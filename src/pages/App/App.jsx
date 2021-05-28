@@ -4,10 +4,10 @@ import P5Wrapper from 'react-p5-wrapper';
 import { sketch, toggleAnimation } from '../../animation';
 import audio from '../../audio';
 import { createBubble, removeBubble } from '../../animation/Bubble';
-import Main from '../../components/Main';
-import OnboardingPanel from '../../components/OnboardingPanel';
-import ControlBar from '../../components/ControlBar';
-import InfoPanel from '../../components/InfoPanel';
+import Main from '../../components/Main/Main';
+import OnboardingPanel from '../../components/OnboardingPanel/OnboardingPanel';
+import ControlBar from '../../components/ControlBar/ControlBar';
+import InfoPanel from '../../components/InfoPanel/InfoPanel';
 import { getRandomInteger } from '../../utils';
 
 function useWindowSize() {
@@ -15,32 +15,12 @@ function useWindowSize() {
 	useLayoutEffect(() => {
 		function updateSize() {
 			setSize([window.innerWidth, window.innerHeight]);
-			console.log('reset size');
 		}
 		window.addEventListener('resize', updateSize);
 		updateSize();
 		return () => window.removeEventListener('resize', updateSize);
 	}, []);
 	return size;
-}
-
-function useOnboardingStatus() {
-	const [onboardingIsVisible, setOnboardingVisibility] = useState(true);
-	const toggleOnboarding = () => {
-		setOnboardingVisibility(!onboardingIsVisible);
-	};
-
-	return { onboardingIsVisible, toggleOnboarding };
-}
-
-function usePlayingStatus() {
-	const [isPlaying, setIsPlaying] = useState(false);
-	const togglePlaying = () => {
-		toggleAnimation();
-		setIsPlaying(!isPlaying);
-	};
-
-	return { isPlaying, togglePlaying };
 }
 
 function useRootTone() {
@@ -55,28 +35,41 @@ function useRootTone() {
 	return { rootTone, updateRootTone };
 }
 
-function useInfoPanelStatus() {
-	const [infoPanelIsVisible, setInfoPanelVisibility] = useState(false);
-	const toggleInfoPanel = () => {
-		setInfoPanelVisibility(!infoPanelIsVisible);
-	};
-
-	return { infoPanelIsVisible, toggleInfoPanel };
-}
-
-function App() {
+const App = () => {
 	const [width, height] = useWindowSize();
+	const [isOnboarding, setIsOnboarding] = useState(true);
+	const [isPlaying, setIsPlaying] = useState(false);
+	const [showInfoPanel, setShowInfoPanel] = useState(false);
 	const [numberOfBubbles, setNumberOfBubbles] = useState(0);
 
-	const { onboardingIsVisible, toggleOnboarding } = useOnboardingStatus();
-	const { isPlaying, togglePlaying } = usePlayingStatus();
 	const { rootTone, updateRootTone } = useRootTone();
-	const { infoPanelIsVisible, toggleInfoPanel } = useInfoPanelStatus();
 
-	function addBubbleToCanvas(e) {
+	const togglePlaying = () => {
+		setIsPlaying((prevIsPlaying) => !prevIsPlaying);
+		toggleAnimation();
+	};
+
+	const toggleInfoPanel = () => {
+		setShowInfoPanel(!showInfoPanel);
+	};
+
+	const toggleOnboarding = () => {
+		if (isOnboarding) {
+			setIsOnboarding((prevState) => false);
+			audio.init();
+		}
+	};
+
+	const addBubbleToCanvas = (e) => {
+		if (isOnboarding) {
+			toggleOnboarding();
+		}
+
 		if (numberOfBubbles < 6) {
 			// Update bubble count state
-			setNumberOfBubbles(numberOfBubbles + 1);
+			setNumberOfBubbles((prevCount) => {
+				return prevCount + 1;
+			});
 
 			// Create new bubble
 			const xPosition =
@@ -88,59 +81,52 @@ function App() {
 					? e.clientY
 					: getRandomInteger(90, window.innerHeight - 90);
 			createBubble(xPosition, yPosition);
-		}
 
-		// Unpause animation if paused
-		if (!isPlaying) {
-			togglePlaying();
+			// Unpause animation if paused
+			if (!isPlaying) {
+				togglePlaying();
+			}
 		}
+	};
 
-		// If first bubble, toggle onboarding and initialize audio
-		if (onboardingIsVisible) {
-			toggleOnboarding();
-			audio.init();
-		}
-	}
-
-	function removeBubbleFromCanvas() {
+	const removeBubbleFromCanvas = () => {
 		if (numberOfBubbles > 0) {
 			// Update bubble count state
-			setNumberOfBubbles(numberOfBubbles - 1);
+			setNumberOfBubbles((prevCount) => prevCount - 1);
 
 			// Remove bubble object
 			removeBubble();
 		}
-	}
-
-	function handleKeyPress(e) {
-		const keyPressed = e.key.toString().toLowerCase();
-
-		if (keyPressed === 'q') {
-			addBubbleToCanvas(null);
-		}
-
-		if (keyPressed === 'p') {
-			removeBubbleFromCanvas();
-		}
-
-		if (keyPressed === ' ') {
-			togglePlaying();
-		}
-	}
+	};
 
 	// Add event listeners
 	useEffect(() => {
-		window.addEventListener('keydown', handleKeyPress);
+		function handleKeyDown(e) {
+			const keyPressed = e.key.toString().toLowerCase();
+
+			if (keyPressed === 'q') {
+				addBubbleToCanvas(null);
+			}
+
+			if (keyPressed === 'p') {
+				removeBubbleFromCanvas();
+			}
+
+			if (keyPressed === ' ') {
+				togglePlaying();
+			}
+		}
+		window.addEventListener('keydown', handleKeyDown);
 
 		return () => {
-			window.removeEventListener('keydown', handleKeyPress);
+			window.removeEventListener('keydown', handleKeyDown);
 		};
-	}, [handleKeyPress]);
+	});
 
 	return (
 		<div className="app">
 			<Main handleClick={addBubbleToCanvas}>
-				<OnboardingPanel isVisible={onboardingIsVisible} />
+				<OnboardingPanel isVisible={isOnboarding} />
 				<P5Wrapper
 					sketch={sketch}
 					height={height - 81}
@@ -156,11 +142,11 @@ function App() {
 				updateRootTone={updateRootTone}
 			/>
 			<InfoPanel
-				isVisible={infoPanelIsVisible}
+				isVisible={showInfoPanel}
 				toggleVisibility={toggleInfoPanel}
 			/>
 		</div>
 	);
-}
+};
 
 export default App;

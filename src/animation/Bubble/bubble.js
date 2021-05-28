@@ -138,22 +138,22 @@ class Bubble {
 	}
 }
 
-function removeBubble() {
+export const removeBubble = () => {
 	sketchSettings.bubbles = removeItemFromArray(sketchSettings.bubbles, 0, 1);
-}
+};
 
 // Generate a random directional velocity
-function generateDirectionalVelocity() {
+const generateDirectionalVelocity = () => {
 	const v = Math.random() < 0.5 ? -1 : 1;
 	return v;
-}
+};
 
-function createBubble(xPosition, yPosition) {
+export const createBubble = (xPosition, yPosition) => {
 	const numberOfBubbleTypes = 4;
 	const maxNumberOfBubblesOnScreen = 6;
 
 	if (sketchSettings.bubbles.length >= maxNumberOfBubblesOnScreen) {
-		removeBubble();
+		this.removeBubble();
 	}
 
 	// Generate a random type id for bubble
@@ -166,6 +166,4 @@ function createBubble(xPosition, yPosition) {
 	sketchSettings.bubbles.push(
 		new Bubble(id, xPosition, yPosition, xVelocity, yVelocity)
 	);
-}
-
-export { createBubble, removeBubble };
+};

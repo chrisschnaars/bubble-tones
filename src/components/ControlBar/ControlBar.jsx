@@ -8,7 +8,7 @@ import { ReactComponent as PlayIcon } from '../../assets/icons/Play.svg';
 import { ReactComponent as PauseIcon } from '../../assets/icons/Pause.svg';
 import { ReactComponent as InfoIcon } from '../../assets/icons/Info.svg';
 
-export default function ControlBar(props) {
+const ControlBar = (props) => {
 	const {
 		isPlaying,
 		rootTone,
@@ -63,7 +63,7 @@ export default function ControlBar(props) {
 			</Container>
 		</div>
 	);
-}
+};
 
 ControlBar.propTypes = {
 	isPlaying: PropTypes.bool,
@@ -80,3 +80,5 @@ ControlBar.defaultProps = {
 	togglePlaying: null,
 	updateRootTone: null,
 };
+
+export default ControlBar;

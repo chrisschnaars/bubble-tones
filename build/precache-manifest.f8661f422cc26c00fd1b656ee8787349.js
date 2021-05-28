@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2660a95a2ebefad90293a75f585d7c18",
+    "revision": "aead8ca702d3f4a41fb20c5e3a3eeb65",
     "url": "/bubble-tones/index.html"
   },
   {
-    "revision": "fa9f98cd63425a72e2fd",
+    "revision": "e863e8d585f06db816fc",
     "url": "/bubble-tones/static/css/main.eeb28a4f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bubble-tones/static/js/2.74f36061.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fa9f98cd63425a72e2fd",
-    "url": "/bubble-tones/static/js/main.6d673d03.chunk.js"
+    "revision": "e863e8d585f06db816fc",
+    "url": "/bubble-tones/static/js/main.262a38ff.chunk.js"
   },
   {
     "revision": "9e4936bd9ad04909fefb",

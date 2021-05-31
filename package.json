@@ -38,7 +38,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.1.2"
   },
-  "homepage": "/bubble-tones/",
+  "homepage": ".",
   "browserslist": {
     "production": [
       ">0.2%",

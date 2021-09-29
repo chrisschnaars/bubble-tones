@@ -2,6 +2,22 @@
 
 Bubble Tones is a generative sound tool that produces a pleasing audio ambiance.
 
+## Build Your Own
+
+Feel free to use this as a starting point for your own web/music exploration. I can't promise that it's the most elegant app ever built, but hopefully it's good enough to get up and running.
+
+Clone the repository:
+`git clone git@github.com:chrisschnaars/bubble-tones.git`
+
+`cd` into the directory:
+`cd bubble-tones`
+
+Install dependencies:
+`npm install`
+
+Start the dev server:
+`npm start`
+
 ## How To Play
 
 In Bubble Tones, sounds are made when a Bubble hits a wall or the larger bubbles (aka Roadblocks). To add a Bubble, just click or tap anywhere on the screen. You can add up to six Bubbles at a time.

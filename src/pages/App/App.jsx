@@ -126,7 +126,10 @@ const App = () => {
 	return (
 		<div className="app">
 			<Main handleClick={addBubbleToCanvas}>
-				<OnboardingPanel isVisible={isOnboarding} />
+				<OnboardingPanel
+					handleClick={addBubbleToCanvas}
+					isVisible={isOnboarding}
+				/>
 				<P5Wrapper
 					sketch={sketch}
 					height={height - 81}

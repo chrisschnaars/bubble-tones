@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import './ContentBlock.css';
 
 export default function ContentBlock(props) {
-	const { children } = props;
+	const { align, children } = props;
 
-	return <div className="content-block">{children}</div>;
+	return <div className={`${align} content-block`}>{children}</div>;
 }
 
 ContentBlock.propTypes = {
+	align: PropTypes.string,
 	children: PropTypes.node,
 };
 
 ContentBlock.defaultProps = {
+	align: 'left',
 	children: null,
 };

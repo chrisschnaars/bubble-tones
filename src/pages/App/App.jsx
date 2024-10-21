@@ -129,7 +129,7 @@ const App = () => {
 				<OnboardingPanel isVisible={isOnboarding} />
 				<P5Wrapper
 					sketch={sketch}
-					height={height - 81}
+					height={height - 72}
 					width={width}
 					isPlaying={isPlaying}
 				/>

@@ -55,6 +55,8 @@ function sketch(p) {
 			sketchSettings.height
 		);
 
+		console.log(sketchSettings.width, sketchSettings.height);
+
 		// Draw offscreen canvas with all bubbles and roadblocks
 		sketchSettings.offscreenCanvas = createOffscreenCanvas(
 			sketchSettings.ctx,

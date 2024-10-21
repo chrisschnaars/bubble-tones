@@ -26,12 +26,7 @@ const ControlBar = (props) => {
 			<Container>
 				<div className="inner-container">
 					<div className="controls-group">
-						<Button
-							handleClick={togglePlaying}
-							shape="round"
-							size="large"
-							variant="primary"
-						>
+						<Button handleClick={togglePlaying} shape="round">
 							{isPlaying ? (
 								<PauseIcon className="icon icon-only icon-large" />
 							) : (

@@ -42,14 +42,15 @@ const audio = {
 	setupOscillator() {
 		this.osc = this.audioCtx.createOscillator();
 		this.oscGain = this.audioCtx.createGain();
+		this.osc.type = 'triangle';
 
 		this.osc.connect(this.oscGain);
 		this.oscGain.connect(this.masterGain);
 
 		// Set periodid wave
-		const wave = bassWave;
-		const w = this.audioCtx.createPeriodicWave(wave.real, wave.imag);
-		this.osc.setPeriodicWave(w);
+		// const wave = bassWave;
+		// const w = this.audioCtx.createPeriodicWave(wave.real, wave.imag);
+		// this.osc.setPeriodicWave(w);
 	},
 
 	setRootTone(updatedTone) {
@@ -62,17 +63,17 @@ const audio = {
 		this.notes[id] = intervalOptions[id][selection];
 	},
 
-	playTone(id, modifier = 1) {
+	playTone(id, roadblock = false) {
 		// Setup oscillator
 		this.setupOscillator();
 
 		// Configure frequency
-		const frequency = this.rootTone * this.notes[id] * modifier;
-		this.osc.frequency.value = frequency;
+		const frequency = this.rootTone * this.notes[id];
+		this.osc.frequency.value = roadblock ? frequency * 2 : frequency;
 
 		// Set time
 		const { currentTime } = this.audioCtx;
-		const attackTime = 0.025;
+		const attackTime = 0.005;
 		const releaseTime = 1.65;
 
 		// Start oscillator

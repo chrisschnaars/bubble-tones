@@ -118,7 +118,7 @@ class Bubble {
 
 				if (distance <= minDistance) {
 					// Play tone
-					audio.playTone(index, 0.5);
+					audio.playTone(index, true);
 					// Calculate angle
 					const angle = sketchSettings.ctx.atan2(
 						yDistance,

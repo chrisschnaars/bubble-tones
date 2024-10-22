@@ -24,8 +24,8 @@
 		"extends": "react-app"
 	},
 	"devDependencies": {
-		"eslint": "^9.13.0",
-		"eslint-plugin-jsx-a11y": "^6.10.1",
+		"eslint": "^8.57.1",
+		"eslint-config-react-app": "^7.0.1",
 		"prettier": "^3.3.3",
 		"prettier-stylelint": "^0.4.2",
 		"stylelint": "^16.10.0",

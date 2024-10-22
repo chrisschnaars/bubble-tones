@@ -1,5 +1,4 @@
-import intervalOptions from './intervalOptions';
-import bassWave from './wavetable';
+import { intervalOptions } from './intervalOptions'
 import { getRandomInteger } from '../utils';
 
 const audio = {
